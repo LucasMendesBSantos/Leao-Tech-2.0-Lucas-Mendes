@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05</title>
+    <link rel="stylesheet" href="estilo.css">
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <style>
+        .titulo1 {
+            display: inline-block;
+            height: 80px;
+        }
+
+        .titulo2 {
+            display: inline-block;
+            height: 120px;
+        }
+
+        .titulo3 {
+            display: inline-block;
+        }
+
+        .titulo4 {
+            display: none;
+        }
+    </style>
+
+    <!-- Elementos do tipo block -->
+    <!-- height, width, margin, padding -->
+
+    <h1 id="titulo1">Aula 5</h1>
+    <h1 id="titulo2">Modelo de caixa</h1>
+
+    <h1 class="azul titulo1">1</h1>
+    <h1 class="vermelho titulo2 ">2</h1>
+    <h1 class="roxo titulo3 ">3</h1>
+    <h1 class="verde titulo4 ">4</h1>
+
+    <!-- 
+    <div></div>
+    <header></header>
+    <main></main>
+    <section></section>
+    <article></article>
+    <aside></aside>
+    <footer></footer>
+    <ul></ul>
+    <li></li>
+    <table></table>
+    <tr></tr>
+    ... 
+    -->
+
+    <form action=""></form>
+
+    <!-- Elementos inline -->
+    <!-- Não controlamos a altura e largura nem margens inferiores e superiores -->
+    <span class="azul"> Span 1</span>
+    <span class="vermelho"> Span 2</span>
+    <span class="roxo"> Span 3</span>
+    <span class="verde"> Span 4</span>
+    <br>
+    <!-- 
+    <a href=""></a>
+    <strong></strong>
+    <em></em>
+    <b></b>
+    <i></i>
+    <label for=""></label>
+     -->
+
+    <!-- Elementos inline-block -->
+    <img class="imagem1 azul" src="../Aula02/img/golden.jpg" alt="">
+
+    <img class="imagem2 vermelho" src="../Aula02/img/golden.jpg" alt="">
+
+    <img class="imagem3 roxo" src="../Aula02/img/golden.jpg" alt="">
+
+    <img class="imagem4 verde" src="../Aula02/img/golden.jpg" alt="">
+
+    <style>
+        .container {
+            border: 2px solid black;
+            height: 800px;
+        }
+
+        .h1-layout {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: red;
+        }
+
+        .borda {
+            border: 2px solid black;
+        }
+
+        .container-caixas {
+            /* margin: 10px 50px; */
+
+            margin-top: 20px;
+            /* margin-bottom: 10px;
+            margin-left: 60px;
+            margin-right: 30px; */
+
+            background-color: gray;
+        }
+
+        .container-2 {
+            background-color: aqua;
+        }
+
+        .caixa{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .div1{
+            display: block;
+            width: 25%;
+        }
+        .div2{
+            display: block;
+            width: 55%;
+        }
+        .div3{
+            display: block;
+            width: 75%;
+        }
+
+    </style>
+
+    <div class="container">
+        <h1 class="h1-layout">Divs</h1>
+
+        <div class="container-caixas borda">
+
+            <div class="caixa1 caixa">
+                Caixa1
+            </div>
+
+            <div class="caixa2 caixa">
+                Caixa2
+            </div>
+
+            <div class="caixa3 caixa">
+                Caixa3
+            </div>
+
+            <div class="caixa4 caixa">
+                Caixa4
+            </div>
+
+        </div>
+
+        <div>
+            <h1 class="h1-layout">DIVs</h1>
+
+            <div class="caixa div1 ">DIV1</div>
+            <div class="caixa div2 ">DIV2</div>
+            <div class="caixa div3 ">DIV3</div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

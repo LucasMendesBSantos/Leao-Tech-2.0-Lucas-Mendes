@@ -2,7 +2,7 @@
 Adicione as propriedades  de altura (100px) , largura(200px),  cor de background (lightblue) e margin da parte de baixo de 20px*/
 box1 {
 display: _________;
-background-color: ;
+background-color: black;
 width: 200px;
 height: 100px;
 margin-bottom: 20px;
@@ -11,7 +11,7 @@ margin-bottom: 20px;
 /* O box2 e box3 devem ser exibidos em linha, mantendo as dimensões de altura e largura definidas para cada um */
 
 .box2 {
-display: ;
+display: block;
 background-color: lightgreen;
 width: 200px;
 height: 100px;
