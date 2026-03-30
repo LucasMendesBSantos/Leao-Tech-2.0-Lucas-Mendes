@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula11 - Operadores</title>
+        <link href="https://cdn.jsd
+        elivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+<script>
+    console.log("Olá Mundo!")
+
+let x = 10
+let y = 5
+
+console.log(`Soma = ${x + y}`)
+console.log(`Subtração = ${x - y}`)
+console.log(`Multiplicação = ${x * y}`)
+console.log(`Divisão = ${x / y}`)
+console.log(`MOD = ${x % y}`)
+
+console.log(`Valor Inicial = ${x}`)
+x++
+console.log(`Valor X+1 = ${x}`)
+
+console.log(`Valor Inicial = ${y}`)
+y--
+console.log(`Valor X-1 = ${y}`)
+
+x = prompt(`Digite um numero`)
+y = prompt(`Digite um numero`)
+
+console.log(x+y)
+
+x = parseFloat(x)
+y =parseFloat(y)
+
+console.log(x+y)
+
+
+//Estrutura de Comparação
+x = 5
+y = '5'
+//Igualdade
+console.log( x == y) // igual duplo desconsidera o tipo
+console.log(x === y) // igual triplo é para levar em consideração até o tipo, ou seja, identico.
+
+//Diferente
+console.log( x != y)
+
+
+//maior que:
+console.log( x > y)
+//menor que:
+console.log( x < y)
+//maior ou igual
+console.log( x >= y)
+//menor ou igual
+console.log( x <= y)
+
+
+
+
+// /* Questões de JS*/
+
+// /*1° Questão: Crie um programa que peça para ousuário digitar seu peso e sua altura e ao final dá o IMC da pessoa
+
+// imc = peso / altrua²*/
+
+
+let peso
+peso = prompt (`Digite o seu peso`)
+let altura 
+altura = prompt (`Digite sua altura (Não esqueça de colocar o ponto e não a virgula)`)
+
+peso = parseFloat(peso)
+altura = parseFloat(altura)
+
+let imc
+
+imc = peso / (altura * altura)
+
+console.log(`Seu IMC é ${imc}`)
+
+
+
+// /* 2°Questão - Peça para o usuário digitar 3 notas, calcule a media das notas e moste na tela*/
+ 
+let nota1
+let nota2
+let nota3
+let media
+
+nota1 = prompt (`Digite a nota 1`)
+nota2 = prompt (`Digite a nota 2`)
+nota3 = prompt (`Digite a nota 3`)
+
+
+nota1 = parseInt(nota1)
+nota2 = parseInt(nota2)
+nota3 = parseInt(nota3)
+
+media = (nota1 + nota2 + nota3) / 3
+
+console.log(` Sua Media é: ${media}`)
+
+
+/*3° Questão - Crie um programa que peça ao usuaio uma porcentagem de desconto. Depois peça o preço d produto e depois mostre o valor antes do desconto, o valor do desconto e o preço final do prodito*/
+
+let preço
+let desconto
+let Valorfinal
+
+preço = prompt(` qual o valor do produto `)
+desconto = prompt(` Qual o desconto que vai ser atribuido ao produto ( formato decimal ex: 50% = 0.5 / 60% = 0.6 e etc...) (Não esqueça de usar ponto ao invés de virgurla)  `)
+
+if(desconto < 1){
+    preço = parseFloat (preço)
+desconto = parseFloat (desconto)
+Valorfinal = (preço * desconto)
+}
+else{
+    Valorfinal = preço - preço * (desconto / 100)
+}
+
+
+
+
+
+console.log(`O valor do produto com desconto é de ${Valorfinal}`)
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+    
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
