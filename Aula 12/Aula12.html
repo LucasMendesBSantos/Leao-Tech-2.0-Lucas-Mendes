@@ -4,69 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula11 - Operadores</title>
-        <link href="https://cdn.jsd
-        elivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 
 <script>
-    console.log("Olá Mundo!")
+//     console.log("Olá Mundo!")
 
-let x = 10
-let y = 5
+// let x = 10
+// let y = 5
 
-console.log(`Soma = ${x + y}`)
-console.log(`Subtração = ${x - y}`)
-console.log(`Multiplicação = ${x * y}`)
-console.log(`Divisão = ${x / y}`)
-console.log(`MOD = ${x % y}`)
+// console.log(`Soma = ${x + y}`)
+// console.log(`Subtração = ${x - y}`)
+// console.log(`Multiplicação = ${x * y}`)
+// console.log(`Divisão = ${x / y}`)
+// console.log(`MOD = ${x % y}`)
 
-console.log(`Valor Inicial = ${x}`)
-x++
-console.log(`Valor X+1 = ${x}`)
+// console.log(`Valor Inicial = ${x}`)
+// x++
+// console.log(`Valor X+1 = ${x}`)
 
-console.log(`Valor Inicial = ${y}`)
-y--
-console.log(`Valor X-1 = ${y}`)
+// console.log(`Valor Inicial = ${y}`)
+// y--
+// console.log(`Valor X-1 = ${y}`)
 
-x = prompt(`Digite um numero`)
-y = prompt(`Digite um numero`)
+// x = prompt(`Digite um numero`)
+// y = prompt(`Digite um numero`)
 
-console.log(x+y)
+// console.log(x+y)
 
-x = parseFloat(x)
-y =parseFloat(y)
+// x = parseFloat(x)
+// y =parseFloat(y)
 
-console.log(x+y)
-
-
-//Estrutura de Comparação
-x = 5
-y = '5'
-//Igualdade
-console.log( x == y) // igual duplo desconsidera o tipo
-console.log(x === y) // igual triplo é para levar em consideração até o tipo, ou seja, identico.
-
-//Diferente
-console.log( x != y)
+// console.log(x+y)
 
 
-//maior que:
-console.log( x > y)
-//menor que:
-console.log( x < y)
-//maior ou igual
-console.log( x >= y)
-//menor ou igual
-console.log( x <= y)
+// //Estrutura de Comparação
+// x = 5
+// y = '5'
+// //Igualdade
+// console.log( x == y) // igual duplo desconsidera o tipo
+// console.log(x === y) // igual triplo é para levar em consideração até o tipo, ou seja, identico.
+
+// //Diferente
+// console.log( x != y)
+
+
+// //maior que:
+// console.log( x > y)
+// //menor que:
+// console.log( x < y)
+// //maior ou igual
+// console.log( x >= y)
+// //menor ou igual
+// console.log( x <= y)
 
 
 
 
 // /* Questões de JS*/
 
-// /*1° Questão: Crie um programa que peça para ousuário digitar seu peso e sua altura e ao final dá o IMC da pessoa
-
-// imc = peso / altrua²*/
+// 1° - Crie um programa que peça para o usuário digitar o seu peso e sua altura. O programa deve calcular o IMC 			do usuário.
+//         imc = peso/altura²
+//         Depois de mostrar o IMC classifique em qual situação a pessoa se encontra de acordo com a seguinte tabela:
+//         abaixo 
+//         de 18,5 -> Abaixo do peso
+//         de 18,5 até 25 -> Peso normal
+//         de 25 até 30 -> Sobrepeso
+//         de 30 ou mais -> Obesidade  
 
 
 let peso
@@ -83,9 +87,28 @@ imc = peso / (altura * altura)
 
 console.log(`Seu IMC é ${imc}`)
 
+if(imc < 18.5 ){
+    console.log(`Está abaixo do peso`)
+}
+if (imc > 18.5 && imc < 25) {
+    console.log(`Está tudo ok`)
+}
+if (imc > 25 && imc < 30) {
+    console.log(`Está Sobrepeso`)
+} 
+else {
+    console.log(`Está Obeso`)
+}
+    
 
 
-// /* 2°Questão - Peça para o usuário digitar 3 notas, calcule a media das notas e moste na tela*/
+
+
+// 2. Peça para o usuário digitar 3 notas, calcule a média das notas e mostre na tela
+
+//         Se a média for menor que 4 -> Reprovado
+//         Se a média for de 4 até 7 -> Recuperação
+//         Se a média for de 7 até 10 -> Aprovado
  
 let nota1
 let nota2
@@ -105,30 +128,75 @@ media = (nota1 + nota2 + nota3) / 3
 
 console.log(` Sua Media é: ${media}`)
 
+if(media < 4){
+    console.log(`Reprovado`)
+}
+if(media >= 4 && media < 7){
 
-/*3° Questão - Crie um programa que peça ao usuaio uma porcentagem de desconto. Depois peça o preço d produto e depois mostre o valor antes do desconto, o valor do desconto e o preço final do prodito*/
+    console.log("Recuperação")
+}
+else{
+    console.log("Aprovado")
+}
+
+
+//  3. Crie um programa que peça o usário que pode ser 1 - gerente ou vendedor,
+//         se for gerente pode aplicar até 50% de desconto, se for vendedor pode aplicar até 30% de desconto.
+//         se o usuário digitar uma porcentagem válida, peça o valor do produto e mostre o preço final.
+
 
 let preço
 let desconto
 let Valorfinal
+let cargo
 
 preço = prompt(` qual o valor do produto `)
+cargo = prompt(`Qual o seu cargo?`)
 desconto = prompt(` Qual o desconto que vai ser atribuido ao produto ( formato decimal ex: 50% = 0.5 / 60% = 0.6 e etc...) (Não esqueça de usar ponto ao invés de virgurla)  `)
 
-if(desconto < 1){
+
+
+if(cargo == "vendedor" || "Vendedor" || "VENDEDOR"){
+    if(desconto < 30 || (desconto < 1 && desconto < 0.3)){
+        if(desconto < 1){
     preço = parseFloat (preço)
-desconto = parseFloat (desconto)
-Valorfinal = (preço * desconto)
+    desconto = parseFloat (desconto)
+    Valorfinal = (preço * desconto)
+    console.log(`O valor do produto com desconto é de ${Valorfinal}`)
 }
-else{
+    else{
     Valorfinal = preço - preço * (desconto / 100)
+    console.log(`O valor do produto com desconto é de ${Valorfinal}`)
+}
+    }
+    else{
+        console.log(" não autorizado")
+    }
 }
 
+    //--------------------
+else if(cargo == "gerente" || "Gerente" || "GERENTE"){
+    if(desconto < 50 || (desconto < 1 && desconto < 0.5)){
+        if(desconto < 1){
+    preço = parseFloat (preço)
+    desconto = parseFloat (desconto)
+    Valorfinal = (preço * desconto)
+    console.log(`O valor do produto com desconto é de ${Valorfinal}`)
+        }
+    else{
+    Valorfinal = preço - preço * (desconto / 100)
+    console.log(`O valor do produto com desconto é de ${Valorfinal}`)
+    }
+    }
+}
+    else{
+    console.log("Não autorizado")
+    }
 
 
 
 
-console.log(`O valor do produto com desconto é de ${Valorfinal}`)
+
 
 
 
