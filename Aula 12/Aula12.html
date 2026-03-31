@@ -195,8 +195,29 @@ else if(cargo == "gerente" || "Gerente" || "GERENTE"){
 
 
 
+//--------------------------------------------
 
+// 4 .Peça para o usuário digitar a hora, se a hora for menor que 21:30 -> não pode dar checkout se não a Hanna Briga!
 
+let hora
+let min
+
+hora = prompt(hora)
+min = prompt(min)
+
+hora = parseInt(hora)
+min = parseInt (min)
+
+if(hora <= 21){
+    if(min < 30){
+        console.log("Não pode checkin, Hanna Briga!")
+    }
+}
+else{
+
+    Console.log("Tá liberado")
+
+}
 
 
 
