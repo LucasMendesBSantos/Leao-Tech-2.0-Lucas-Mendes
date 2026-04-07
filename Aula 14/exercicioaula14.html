@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio aula 14</title>
+</head>
+
+<script>
+
+    // exercicio
+    let opcao;
+    do {
+        opcao = prompt("Selecione uma opção:\n1 - Cadastrar usuário\n2 - Listar usuários\n3 - Sair do sistema");
+        opcao = parseInt(opcao);
+
+        switch (opcao) {
+            case 1:
+                alert("Cadastrar usuário");
+                break;
+            case 2:
+                alert("Listar usuários");
+                break;
+            case 3:
+                alert("Saindo do sistema...");
+                break;
+            default:
+                alert("Opção inválida");
+        }
+    } while (opcao !== 3);
+
+
+// 1. Crie um programa que seria uma lista de desejos, onde o usuário pode pedir 3 coisas e você mostra cada um dos pedidos na tela.
+let desejos = [];
+for (let i = 0; i < 3; i++) {
+    let desejo = prompt(`Digite o desejo ${i + 1}:`);
+    desejos.push(desejo);
+}
+
+// Exibir os desejos
+for (let i = 0; i < desejos.length; i++) {
+    alert(`Desejo ${i + 1}: ${desejos[i]}`);
+}
+
+// 2. Crie um programa que receba um valor de compra e depois um número de parcelas, e depois mostre na tela o valor de cada parcela utilizando um for
+let valorCompra = parseFloat(prompt("Digite o valor da compra:"));
+let numParcelas = parseInt(prompt("Digite o número de parcelas:"));
+
+for (let i = 1; i <= numParcelas; i++) {
+    let valorParcela = valorCompra / numParcelas;
+    alert(`Parcela ${i}: R$ ${valorParcela.toFixed(2)}`);
+}
+
+// // 3. Um sistema de caixa precisa calcular o total de uma compra. Solicite ao usuário a quantidade de produtos comprados.
+// Depois, usando um for:
+// 	peça o preço de cada produto
+// 	some os valores
+
+// Ao final, exiba o total da compra.
+let quantidadeProdutos = parseInt(prompt("Digite a quantidade de produtos comprados:"));
+
+let totalCompra = 0;
+
+for (let i = 1; i <= quantidadeProdutos; i++) {
+    let precoProduto = parseFloat(prompt(`Digite o preço do produto ${i}:`));
+    totalCompra += precoProduto;
+}
+alert(`Total da compra: R$ ${totalCompra.toFixed(2)}`);
+
+
+// 4. Um professor tem 10 alunos e precisa saber quantos foram aprovados, crie um programa que peça a nota de cada um dos 10 alunos e se a nota for maior ou igual a 7, mostre aprovado, se não, recuperação. no final mostre o total de alunos aprovados e de recuperação
+
+let aprovados = 0;
+let recuperacao = 0;
+
+for (let i = 1; i <= 10; i++) {
+    let nota = parseFloat(prompt(`Digite a nota do aluno ${i}:`));
+    if (nota >= 7) {
+        aprovados++;
+    } else {
+        recuperacao++;
+    }
+}
+alert(`Alunos aprovados: ${aprovados}`);
+alert(`Alunos em recuperação: ${recuperacao}`);
+
+
+</script>
+
+<body>
+    
+</body>
+</html>
