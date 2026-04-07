@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios switch case</title>
+
+    <script>
+
+// 1. Verifique se o usuário do sistema é maior de idade ou não.
+
+const idade = Number(prompt("Digite a sua idade:"));
+
+if (idade >= 18) {
+    console.log("Você é maior de idade.");
+} else {
+    console.log("Você é menor de idade.");
+}
+
+
+
+
+// 2. Peça ao usuário um número e verifique se ele é ímpar ou par.
+
+const numero = Number(prompt("Digite um número:"));
+
+if (numero % 2 === 0) {
+    console.log(`O número ${numero} é Par.`);
+} else {
+    console.log(`O número ${numero} é Ímpar.`);
+}
+
+// 3. Peça ao usuário a nota de um aluno e se for maior que 7, mostre aprovado se não mostre recuperação.
+
+const nota = Number(prompt("Digite a nota do aluno:"));
+
+if (nota >= 7) {
+    console.log("Aprovado!");
+} else {
+    console.log("Recuperação.");
+}
+
+// 4. Peça para um usuário digitar um número e só permita que o número seja positivo.
+
+let numPositivo = Number(prompt("Digite um número positivo:"));
+
+while (numPositivo <= 0) {
+    numPositivo = Number(prompt("Erro! O número deve ser positivo. Tente novamente:"));
+}
+
+console.log(`Obrigado! Você digitou o número: ${numPositivo}`);
+
+// 5. Peça para o usuário digitar o preço de um produto e diga se ele é caro se custar mais de 100 reais e barato se custar menos que 100.
+
+const preco = Number(prompt("Digite o preço do produto:"));
+
+if (preco > 100) {
+    console.log("O produto é caro.");
+} else if (preco < 100) {
+    console.log("O produto é barato.");
+} else {
+    console.log("O produto custa exatamente 100 reais.");
+}
+
+
+
+
+// --------------------------------------------------------------------switch case--------------------------------------------------------------------
+// 1. Você está desenvolvendo um sistema simples de menu para um aplicativo.
+
+// Solicite ao usuário uma opção digitando:
+// 1 - Cadastrar usuário
+// 2 - Listar usuários
+// 3 - Sair do sistema
+
+// Utilize switch para exibir a ação correspondente a cada opção. Caso o valor seja inválido, exiba "Opção inválida".
+
+
+// Captura a entrada do usuário
+let opcao = prompt("Escolha uma opção:\n1 - Cadastrar usuário\n2 - Listar usuários\n3 - Sair do sistema");
+
+// Converte a entrada para número para garantir a comparação correta no switch
+opcao = parseInt(opcao);
+
+switch (opcao) {
+    case 1:
+        console.log("Ação selecionada: Cadastrar usuário");
+        break;
+    case 2:
+        console.log("Ação selecionada: Listar usuários");
+        break;
+    case 3:
+        console.log("Saindo do sistema...");
+        break;
+    default:
+        console.log("Opção inválida");
+        break;
+}
+
+
+// 2. Crie um programa para mostrar o nome do mês de acordo com o número digitado. 1 = "Janeiro", 2 = "Fevereiro" ....
+
+// Solicita o número do mês ao usuário
+let numeroMes = prompt("Digite o número do mês (1 a 12):");
+
+// Converte para número inteiro
+numeroMes = parseInt(numeroMes);
+
+switch (numeroMes) {
+    case 1:
+        console.log("Janeiro");
+        break;
+    case 2:
+        console.log("Fevereiro");
+        break;
+    case 3:
+        console.log("Março");
+        break;
+    case 4:
+        console.log("Abril");
+        break;
+    case 5:
+        console.log("Maio");
+        break;
+    case 6:
+        console.log("Junho");
+        break;
+    case 7:
+        console.log("Julho");
+        break;
+    case 8:
+        console.log("Agosto");
+        break;
+    case 9:
+        console.log("Setembro");
+        break;
+    case 10:
+        console.log("Outubro");
+        break;
+    case 11:
+        console.log("Novembro");
+        break;
+    case 12:
+        console.log("Dezembro");   
+        break;
+    default:
+        console.log("Número do mês inválido");
+        break;
+
+}
+
+// 3. Um sistema escolar classifica alunos por conceito.
+// Solicite ao usuário uma letra (A, B, C ou D) e utilize switch para exibir:
+
+// A → "Excelente desempenho"
+// B → "Bom desempenho"
+// C → "Desempenho regular"
+// D → "Desempenho insuficiente"
+
+// Caso seja informada outra letra, exiba "Conceito inválido".
+
+
+// Solicita o conceito ao usuário
+let conceito = prompt("Digite o conceito do aluno (A, B, C ou D):");
+
+// Converte para maiúsculo para evitar erro caso o usuário digite 'a' em vez de 'A'
+conceito = conceito.toUpperCase();
+
+switch (conceito) {
+    case 'A':
+        console.log("Excelente desempenho");
+        break;
+    case 'B':
+        console.log("Bom desempenho");
+        break;
+    case 'C':
+        console.log("Desempenho regular");
+        break;
+    case 'D':
+        console.log("Desempenho insuficiente");
+        break;
+    default:
+        console.log("Conceito inválido");
+        break;
+}
+
+
+// 4. sistema de atendimento com fluxo (menu interativo)
+
+// Você está desenvolvendo um sistema de atendimento para um aplicativo.
+
+// O usuário deve escolher uma opção:
+
+// 1 - Criar conta
+// 2 - Fazer login
+// 3 - Recuperar senha
+
+// Dependendo da escolha, o sistema deve:
+
+// 1 (Criar conta):
+// 	pedir nome
+// 	pedir email
+// 	pedir senha
+// 	exibir: "Conta criada com sucesso para [nome]"
+// 2 (Login):
+// 	pedir email
+// 	pedir senha
+// 	exibir: "Login realizado com sucesso"
+// 3 (Recuperar senha):
+// 	pedir email
+// 	perguntar "Deseja receber código por email ou SMS?"
+// 	exibir: "Instruções enviadas"
+
+// Caso a opção seja inválida, exibir "Opção inválida"
+
+// Passo 1: Solicita a opção principal
+let opcaoAtendimento = prompt("Bem-vindo ao atendimento! Escolha uma opção:\n1 - Criar conta\n2 - Fazer login\n3 - Recuperar senha");
+
+switch (opcaoAtendimento) {
+    case '1':
+        // Fluxo de Criação de Conta
+        let nome = prompt("Digite seu nome:");
+        let emailCriar = prompt("Digite seu email:");
+        let senhaCriar = prompt("Digite sua senha:");
+        console.log(`Conta criada com sucesso para ${nome}`);
+        break;
+
+    case '2':
+        // Fluxo de Login
+        let emailLogin = prompt("Digite seu email:");
+        let senhaLogin = prompt("Digite sua senha:");
+        console.log("Login realizado com sucesso");
+        break;
+
+    case '3':
+        // Fluxo de Recuperação de Senha
+        let emailRecup = prompt("Digite seu email:");
+        let metodo = prompt("Deseja receber código por email ou SMS?");
+        console.log("Instruções enviadas");
+        break;
+
+    default:
+        console.log("Opção inválida");
+        break;
+}
+
+// 5. sistema de saque/depósito (simulação de caixa eletrônico)
+
+// Você está desenvolvendo um sistema simples de caixa eletrônico.
+
+// O sistema deve iniciar com um saldo fictício de R$ 1000.
+
+// Mostre o seguinte menu:
+
+// 1 - Consultar saldo
+// 2 - Sacar dinheiro
+// 3 - Depositar dinheiro
+
+// Utilize switch para controlar o fluxo do sistema.
+
+// Regras:
+
+// 1 (Consultar saldo):
+// 	exibir o saldo atual
+// 2 (Sacar dinheiro):
+// 	pedir o valor do saque
+// 	verificar:
+// 	se o valor é menor ou igual ao saldo → realizar saque
+// 	senão → exibir "Saldo insuficiente"
+// 		atualizar o saldo
+// 	exibir novo saldo
+// 3 (Depositar dinheiro):
+// 	pedir o valor do depósito
+// 	adicionar ao saldo
+// 	exibir novo saldo
+        
+
+// Saldo inicial
+let saldo = 1000.00;
+
+// Exibe o menu e captura a opção
+let opcaoCaixa = prompt("Caixa Eletrônico - Saldo Atual: R$ " + saldo.toFixed(2) + 
+                   "\n1 - Consultar saldo" +
+                   "\n2 - Sacar dinheiro" +
+                   "\n3 - Depositar dinheiro");
+
+switch (opcaoCaixa) {
+    case '1':
+        // Apenas exibe o valor formatado com 2 casas decimais
+        alert("Seu saldo atual é: R$ " + saldo.toFixed(2));
+        break;
+
+    case '2':
+        let valorSaque = parseFloat(prompt("Quanto deseja sacar?"));
+
+        if (valorSaque <= saldo) {
+            saldo -= valorSaque; // Subtrai do saldo: saldo = saldo - valorSaque
+            alert("Saque realizado com sucesso!\nNovo saldo: R$ " + saldo.toFixed(2));
+        } else {
+            alert("Saldo insuficiente para esta operação.");
+        }
+        break;
+
+    case '3':
+        let valorDeposito = parseFloat(prompt("Quanto deseja depositar?"));
+        
+        if (valorDeposito > 0) {
+            saldo += valorDeposito; // Soma ao saldo: saldo = saldo + valorDeposito
+            alert("Depósito realizado!\nNovo saldo: R$ " + saldo.toFixed(2));
+        } else {
+            alert("Valor de depósito inválido.");
+        }
+        break;
+
+    default:
+        alert("Opção inválida.");
+        break;
+}
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
