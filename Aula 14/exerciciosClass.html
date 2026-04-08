@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Class</title>
+</head>
+
+<script>
+//1. Você está desenvolvendo um sistema simples de menu para um aplicativo.
+
+// Solicite ao usuário uma opção digitando:
+// 1 - Cadastrar usuário
+// 2 - Listar usuários
+// 3 - Sair do sistema
+
+// Utilize switch para exibir a ação correspondente a cada opção. Caso o valor seja inválido, exiba "Opção inválida".
+
+// Repita a solicitação até que a pessoa selecione a opção 3 para sair do sistema.
+// let opcao;
+
+// do {
+//     // Solicita a opção ao usuário e converte para número inteiro
+//     opcao = parseInt(prompt(
+//         "--- MENU DO SISTEMA ---\n" +
+//         "1 - Cadastrar usuário\n" +
+//         "2 - Listar usuários\n" +
+//         "3 - Sair do sistema\n\n" +
+//         "Escolha uma opção:"
+//     ));
+
+//     // Processa a opção escolhida
+//     switch (opcao) {
+//         case 1:
+//             alert("Ação: Cadastrando novo usuário...");
+//             break;
+//         case 2:
+//             alert("Ação: Listando todos os usuários...");
+//             break;
+//         case 3:
+//             alert("Saindo do sistema... Até logo!");
+//             break;
+//         default:
+//             alert("Opção inválida! Tente novamente.");
+//             break;
+//     }
+
+// } while (opcao !== 3); // O laço continua enquanto a opção NÃO for 3
+
+
+// // 1. Crie um programa que seria uma lista de desejos, onde o usuário pode pedir 3 coisas e você mostra cada um dos pedidos na tela.
+
+// let listaDeDesejos = [];
+
+// for (let i = 1; i <= 3; i++) {
+//     let desejo = prompt("Digite o seu " + i + "º desejo:");
+    
+//     listaDeDesejos.push(desejo);
+// }
+
+
+// alert("Sua lista de desejos é:\n" + 
+//       "1. " + listaDeDesejos[0] + "\n" +
+//       "2. " + listaDeDesejos[1] + "\n" +
+//       "3. " + listaDeDesejos[2]);
+
+// console.log("Pedidos realizados:", listaDeDesejos);
+
+// // 2. Crie um programa que receba um valor de compra e depois um número de parcelas, e depois mostre na tela o valor de cada parcela utilizando um for
+
+// let valorCompra = parseFloat(prompt("Digite o valor total da compra:"));
+
+// let parcelas = parseInt(prompt("Em quantas vezes deseja parcelar?"));
+
+// let valorParcela = valorCompra / parcelas;
+
+// alert("O valor de cada parcela será: R$ " + valorParcela.toFixed(2));
+
+// console.log("--- Cronograma de Pagamento ---");
+
+// for (let i = 1; i <= parcelas; i++) {
+//     console.log("Parcela " + i + ": R$ " + valorParcela.toFixed(2));
+// }
+
+// alert("O detalhamento das " + parcelas + " parcelas foi gerado no console (F12).");
+
+// // 3. Um sistema de caixa precisa calcular o total de uma compra.
+
+
+// let quantidade = parseInt(prompt("Quantos produtos foram comprados?"));
+
+
+// let totalCompra = 0;
+
+
+// for (let i = 1; i <= quantidade; i++) {
+//     let preco = parseFloat(prompt("Digite o preço do " + i + "º produto:"));
+    
+    
+//     totalCompra += preco;
+// }
+
+
+// alert("O total da compra é: R$ " + totalCompra.toFixed(2));
+// console.log("Total final calculado: R$ " + totalCompra.toFixed(2));
+
+// // 4. Um professor tem 10 alunos e precisa saber quantos foram aprovados, crie um programa que peça a nota de cada um dos 10 alunos e se a nota for maior ou igual a 7, mostre aprovado, se não, recuperação.
+
+// // no final mostre o total de alunos aprovados e de recuperação
+
+
+// let aprovados = 0;
+// let recuperacao = 0;
+
+
+// for (let i = 1; i <= 10; i++) {
+//     let nota = parseFloat(prompt("Digite a nota do " + i + "º aluno:"));
+
+    
+//     if (nota >= 7) {
+//         alert("Aluno " + i + ": Aprovado!");
+//         aprovados++; 
+//     } else {
+//         alert("Aluno " + i + ": Recuperação.");
+//         recuperacao++; 
+//     }
+// }
+
+// alert("--- RESULTADO FINAL ---\n" +
+//       "Total de Alunos Aprovados: " + aprovados + "\n" +
+//       "Total de Alunos em Recuperação: " + recuperacao);
+
+// console.log("Relatório: ", { aprovados, recuperacao });
+
+
+// // #############################
+// // ######## while ################
+// // #############################
+
+// // 1. login até acertar (simples)
+
+// // Um sistema pede senha para acesso.
+
+// // Defina uma senha fixa (ex: "1234").
+// // Utilize um while para continuar pedindo a senha até o usuário acertar.
+
+// // Quando acertar, exiba: "Acesso liberado".
+
+
+// const senhaCorreta = "1234";
+
+// let tentativa = prompt("Digite a senha para acessar o sistema:");
+
+// while (tentativa !== senhaCorreta) {
+//     alert("Senha incorreta! Tente novamente.");
+    
+//     tentativa = prompt("Digite a senha para acessar o sistema:");
+// }
+
+// alert("Acesso liberado!");
+// console.log("Status: Logado com sucesso.");
+
+
+// // 2 . Menu até sair
+// // sistema de saque/depósito (simulação de caixa eletrônico)
+
+// // Você está desenvolvendo um sistema simples de caixa eletrônico.
+
+// // O sistema deve iniciar com um saldo fictício de R$ 1000.
+
+// // Mostre o seguinte menu:
+
+// // 1 - Consultar saldo
+// // 2 - Sacar dinheiro
+// // 3 - Depositar dinheiro
+// // 4 - Sair
+
+// // Utilize switch para controlar o fluxo do sistema.
+
+// // Regras:
+
+// // 1 (Consultar saldo):
+// // 	exibir o saldo atual
+// // 2 (Sacar dinheiro):
+// // 	pedir o valor do saque
+// // 	verificar:
+// // 	se o valor é menor ou igual ao saldo → realizar saque
+// // 	senão → exibir "Saldo insuficiente"
+// // 		atualizar o saldo
+// // 	exibir novo saldo
+// // 3 (Depositar dinheiro):
+// // 	pedir o valor do depósito
+// // 	adicionar ao saldo
+// // 	exibir novo saldo
+// // 4 (Sair):
+// // 	Se o usuário selecionar o 4 deve encerrar o programa, se for qualquer outra opção deve pedir novamente a opção solicitada
+
+
+// let saldo = 1000;
+// let opcao;
+
+// do {
+   
+//     opcao = parseInt(prompt(
+//         "--- CAIXA ELETRÔNICO ---\n" +
+//         "Saldo Atual: R$ " + saldo.toFixed(2) + "\n\n" +
+//         "1 - Consultar saldo\n" +
+//         "2 - Sacar dinheiro\n" +
+//         "3 - Depositar dinheiro\n" +
+//         "4 - Sair\n\n" +
+//         "Escolha uma opção:"
+//     ));
+
+//     switch (opcao) {
+//         case 1:
+           
+//             alert("Seu saldo atual é: R$ " + saldo.toFixed(2));
+//             break;
+
+//         case 2:
+//             // Lógica de Saque
+//             let valorSaque = parseFloat(prompt("Quanto deseja sacar?"));
+            
+//             if (valorSaque <= saldo) {
+//                 saldo -= valorSaque; 
+//                 alert("Saque realizado com sucesso!\nNovo saldo: R$ " + saldo.toFixed(2));
+//             } else {
+//                 alert("Saldo insuficiente para realizar essa operação.");
+//             }
+//             break;
+
+//         case 3:
+            
+//             let valorDeposito = parseFloat(prompt("Quanto deseja depositar?"));
+            
+//             if (valorDeposito > 0) {
+//                 saldo += valorDeposito; 
+//                 alert("Depósito realizado!\nNovo saldo: R$ " + saldo.toFixed(2));
+//             } else {
+//                 alert("Valor de depósito inválido.");
+//             }
+//             break;
+
+//         case 4:
+//             alert("Sistema encerrado. Obrigado por utilizar nosso caixa!");
+//             break;
+
+//         default:
+            
+//             alert("Opção inválida! Tente novamente.");
+//             break;
+//     }
+
+// } while (opcao !== 4); 
+
+// // 3. caixa com múltiplas compras
+
+// // Um sistema de caixa permite registrar várias compras.
+
+// // Enquanto o usuário digitar "s" (sim), o sistema deve:
+
+// // pedir o valor da compra
+// // somar ao total
+
+// // Quando o usuário parar, exibir:
+
+// // total arrecadado
+
+// let totalArrecadado = 0;
+// let continuar = "s";
+
+// while (continuar.toLowerCase() === "s") {
+    
+//     let valorCompra = parseFloat(prompt("Digite o valor da compra:"));
+
+//     if (!isNaN(valorCompra) && valorCompra > 0) {
+//         totalArrecadado += valorCompra;
+//         console.log("Compra de R$ " + valorCompra.toFixed(2) + " adicionada.");
+//     } else {
+//         alert("Valor inválido! Esta compra não será somada.");
+//     }
+
+//     continuar = prompt("Deseja registrar outra compra? (s/n)");
+// }
+
+// alert("Sistema encerrado.\nTotal arrecadado: R$ " + totalArrecadado.toFixed(2));
+// console.log("Fechamento de caixa: R$ " + totalArrecadado.toFixed(2));
+
+
+// // 4. validação de entrada
+
+// // Um sistema precisa garantir que o usuário digite um valor válido.
+
+// // Solicite um número entre 1 e 10.
+// // Utilize while para repetir a pergunta até o valor ser válido.
+
+// // Fazemos a primeira solicitação
+// let numero = parseInt(prompt("Digite um número entre 1 e 10:"));
+
+
+// while (numero < 1 || numero > 10 || isNaN(numero)) {
+//     numero = parseInt(prompt("Valor inválido! Digite um número que esteja entre 1 e 10:"));
+// }
+
+// alert("Parabéns! O número " + numero + " é válido.");
+
+// // #############################
+// // ######## do  while #############
+// // #############################
+
+// // 1. confirmação de operação (simples)
+
+// // Um sistema precisa confirmar uma ação.
+
+// // Pergunte:
+// // "Deseja continuar? (s/n)"
+
+// // Utilize do while para repetir até o usuário digitar "s" ou "n".
+
+// let resposta;
+
+// do {
+
+//     resposta = prompt("Deseja continuar? (s/n)").toLowerCase();
+
+//     if (resposta !== "s" && resposta !== "n") {
+//         alert("Opção inválida! Por favor, digite apenas 's' para sim ou 'n' para não.");
+//     }
+
+// } while (resposta !== "s" && resposta !== "n");
+
+// alert("Você confirmou a opção: " + resposta);
+
+
+// // 2. sistema de menu com operações
+
+// // Um sistema possui o menu:
+
+// // 1 - Somar dois números
+// // 2 - Subtrair dois números
+// // 3 - Sair
+
+// // Utilize do while para:
+
+// // exibir o menu
+// // executar a operação escolhida (usar switch)
+// // repetir até o usuário escolher sair
+
+
+let opcao;
+
+do {
+    opcao = parseInt(prompt(
+        "--- MINI CALCULADORA ---\n" +
+        "1 - Somar dois números\n" +
+        "2 - Subtrair dois números\n" +
+        "3 - Sair\n\n" +
+        "Escolha uma opção:"
+    ));
+
+    switch (opcao) {
+        case 1:
+            let num1Soma = parseFloat(prompt("Digite o primeiro número:"));
+            let num2Soma = parseFloat(prompt("Digite o segundo número:"));
+            let resultadoSoma = num1Soma + num2Soma;
+            alert("Resultado da Soma: " + resultadoSoma);
+            break;
+
+        case 2:
+            let num1Sub = parseFloat(prompt("Digite o primeiro número:"));
+            let num2Sub = parseFloat(prompt("Digite o segundo número:"));
+            let resultadoSub = num1Sub - num2Sub;
+            alert("Resultado da Subtração: " + resultadoSub);
+            break;
+
+        case 3:
+            alert("Encerrando o sistema... Até mais!");
+            break;
+
+        default:
+            alert("Opção inválida! Por favor, escolha 1, 2 ou 3.");
+            break;
+    }
+
+} while (opcao !== 3);
+
+
+
+</script>
+
+<body>
+    
+</body>
+</html>
