@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetores (Arrays)</title>
+</head>
+
+<script>
+
+let quantidade = parseInt(prompt("Digite a quantidade de nomes:"))
+let nomes = []
+
+for (let i = 0; i < quantidade; i++) {
+    let nome = prompt("Digite um nome:")
+    nomes.push(nome)
+}
+
+console.log(`Quantidade de nomes é: ${nomes.length}`)
+
+for (let i = 0; i < quantidade; i++) {
+    console.log(`seja bem vindo ${nomes[i]}`)
+}
+
+
+nomes.push("Maria") // Adiciona um elemento no final do array
+nomes.unshift("João") // Adiciona um elemento no início do array
+nomes.pop() // Remove o último elemento do array    
+nomes.shift() // Remove o primeiro elemento do array
+nomes.splice(1, 1) // Remove um elemento específico do array (neste caso, o elemento na posição 1)
+nomes.splice(1, 0, "Carlos") // Adiciona um elemento específico no array (neste caso, o elemento "Carlos" na posição 1)
+nomes.slice(0, 2) // Retorna uma parte do array (neste caso, os elementos da posição 0 a 1)
+nomes.includes("Carlos") // Verifica se um elemento existe no array (neste caso, verifica se "Carlos" existe no array)
+nomes.indexOf("Carlos") // Retorna a posição de um elemento no array (neste caso, retorna a posição de "Carlos" no array)
+
+
+// ################### Exercicios ######################
+
+</script>
+
+<body>
+    
+</body>
+</html>

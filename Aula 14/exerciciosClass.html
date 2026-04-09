@@ -17,10 +17,13 @@
 // Utilize switch para exibir a ação correspondente a cada opção. Caso o valor seja inválido, exiba "Opção inválida".
 
 // Repita a solicitação até que a pessoa selecione a opção 3 para sair do sistema.
+
+
+
 // let opcao;
 
 // do {
-//     // Solicita a opção ao usuário e converte para número inteiro
+
 //     opcao = parseInt(prompt(
 //         "--- MENU DO SISTEMA ---\n" +
 //         "1 - Cadastrar usuário\n" +
@@ -29,7 +32,6 @@
 //         "Escolha uma opção:"
 //     ));
 
-//     // Processa a opção escolhida
 //     switch (opcao) {
 //         case 1:
 //             alert("Ação: Cadastrando novo usuário...");
@@ -44,8 +46,9 @@
 //             alert("Opção inválida! Tente novamente.");
 //             break;
 //     }
+        // opcao = prompt("Digite uma opção (1, 2 ou 3):");
 
-// } while (opcao !== 3); // O laço continua enquanto a opção NÃO for 3
+// } while (opcao !== 3);
 
 
 // // 1. Crie um programa que seria uma lista de desejos, onde o usuário pode pedir 3 coisas e você mostra cada um dos pedidos na tela.
@@ -69,8 +72,12 @@
 // // 2. Crie um programa que receba um valor de compra e depois um número de parcelas, e depois mostre na tela o valor de cada parcela utilizando um for
 
 // let valorCompra = parseFloat(prompt("Digite o valor total da compra:"));
+// let valorCompra = parseFloat(prompt("Valor inválido! Por favor, digite um valor positivo para a compra:"));
+// while (valorCompra <= 0 || isNaN(valorCompra)) {
+//     valorCompra = parseFloat(prompt("Valor inválido! Por favor, digite um valor positivo para a compra:"));
+    
+// }
 
-// let parcelas = parseInt(prompt("Em quantas vezes deseja parcelar?"));
 
 // let valorParcela = valorCompra / parcelas;
 
@@ -82,27 +89,27 @@
 //     console.log("Parcela " + i + ": R$ " + valorParcela.toFixed(2));
 // }
 
-// alert("O detalhamento das " + parcelas + " parcelas foi gerado no console (F12).");
+// alert("O detalhamento das " + parcelas + " parcelas foi gerado no console.");
 
 // // 3. Um sistema de caixa precisa calcular o total de uma compra.
 
 
-// let quantidade = parseInt(prompt("Quantos produtos foram comprados?"));
+let quantidade = parseInt(prompt("Quantos produtos foram comprados?"));
 
 
-// let totalCompra = 0;
+let totalCompra = 0;
 
 
-// for (let i = 1; i <= quantidade; i++) {
-//     let preco = parseFloat(prompt("Digite o preço do " + i + "º produto:"));
+for (let i = 1; i <= quantidade; i++) {
+    let preco = parseFloat(prompt("Digite o preço do " + i + "º produto:"));
     
     
-//     totalCompra += preco;
-// }
+    totalCompra += preco;
+}
 
 
-// alert("O total da compra é: R$ " + totalCompra.toFixed(2));
-// console.log("Total final calculado: R$ " + totalCompra.toFixed(2));
+alert("O total da compra é: R$ " + totalCompra);
+console.log("Total final calculado: R$ " + totalCompra);
 
 // // 4. Um professor tem 10 alunos e precisa saber quantos foram aprovados, crie um programa que peça a nota de cada um dos 10 alunos e se a nota for maior ou igual a 7, mostre aprovado, se não, recuperação.
 
@@ -120,7 +127,8 @@
 //     if (nota >= 7) {
 //         alert("Aluno " + i + ": Aprovado!");
 //         aprovados++; 
-//     } else {
+//     } 
+//     else {
 //         alert("Aluno " + i + ": Recuperação.");
 //         recuperacao++; 
 //     }
@@ -347,42 +355,42 @@
 // // repetir até o usuário escolher sair
 
 
-let opcao;
+// let opcao;
 
-do {
-    opcao = parseInt(prompt(
-        "--- MINI CALCULADORA ---\n" +
-        "1 - Somar dois números\n" +
-        "2 - Subtrair dois números\n" +
-        "3 - Sair\n\n" +
-        "Escolha uma opção:"
-    ));
+// do {
+//     opcao = parseInt(prompt(
+//         "--- MINI CALCULADORA ---\n" +
+//         "1 - Somar dois números\n" +
+//         "2 - Subtrair dois números\n" +
+//         "3 - Sair\n\n" +
+//         "Escolha uma opção:"
+//     ));
 
-    switch (opcao) {
-        case 1:
-            let num1Soma = parseFloat(prompt("Digite o primeiro número:"));
-            let num2Soma = parseFloat(prompt("Digite o segundo número:"));
-            let resultadoSoma = num1Soma + num2Soma;
-            alert("Resultado da Soma: " + resultadoSoma);
-            break;
+//     switch (opcao) {
+//         case 1:
+//             let num1Soma = parseFloat(prompt("Digite o primeiro número:"));
+//             let num2Soma = parseFloat(prompt("Digite o segundo número:"));
+//             let resultadoSoma = num1Soma + num2Soma;
+//             alert("Resultado da Soma: " + resultadoSoma);
+//             break;
 
-        case 2:
-            let num1Sub = parseFloat(prompt("Digite o primeiro número:"));
-            let num2Sub = parseFloat(prompt("Digite o segundo número:"));
-            let resultadoSub = num1Sub - num2Sub;
-            alert("Resultado da Subtração: " + resultadoSub);
-            break;
+//         case 2:
+//             let num1Sub = parseFloat(prompt("Digite o primeiro número:"));
+//             let num2Sub = parseFloat(prompt("Digite o segundo número:"));
+//             let resultadoSub = num1Sub - num2Sub;
+//             alert("Resultado da Subtração: " + resultadoSub);
+//             break;
 
-        case 3:
-            alert("Encerrando o sistema... Até mais!");
-            break;
+//         case 3:
+//             alert("Encerrando o sistema... Até mais!");
+//             break;
 
-        default:
-            alert("Opção inválida! Por favor, escolha 1, 2 ou 3.");
-            break;
-    }
+//         default:
+//             alert("Opção inválida! Por favor, escolha 1, 2 ou 3.");
+//             break;
+//     }
 
-} while (opcao !== 3);
+// } while (opcao !== 3);
 
 
 
