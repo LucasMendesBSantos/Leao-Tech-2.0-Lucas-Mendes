@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicios</title>
+</head>
+
+<script>
+
+// ############### If ternário ###############
+  
+//1. Verifique se o usuário do sistema é maior de idade ou não.
+
+let idade = prompt("Digite sua idade:");
+if (idade >= 18) {
+  alert("Você é maior de idade.");
+} else {
+  alert("Você é menor de idade.");
+}
+
+//2. Peça ao usuário um número e verifique se ele é ímpar ou par.
+let numero = prompt("Digite um número:");
+if (numero % 2 === 0) {
+  alert("O número é par.");
+} else {
+  alert("O número é ímpar.");
+}
+
+//3. Peça ao usuário a nota de um aluno e se for maior que 7, mostre aprovado se não mostre recuperação.
+let nota = prompt("Digite a nota do aluno:");
+if (nota >= 7) {
+  alert("Aluno aprovado.");
+} else {
+  alert("Aluno em recuperação.");
+}
+
+//4. Peça para um usuário digitar um número e só permita que o número seja positivo.
+//let numero = prompt("Digite um número positivo:");
+//if (numero > 0) {
+//  alert("Número válido.");
+//} else {
+//  alert("Número inválido. Por favor, digite um número positivo.");
+//}
+
+//5. Peça para o usuário digitar o preço de um produto e diga se ele é caro se custar mais de 100 reais e barato se custar menos que 100.
+//let preco = prompt("Digite o preço do produto:");
+//if (preco > 100) {
+  //alert("O produto é caro.");
+//} else {
+  //alert("O produto é barato.");
+//}
+
+// ############## switch case ##############
+
+
+//1. Você está desenvolvendo um sistema simples de menu para um aplicativo.
+
+// Solicite ao usuário uma opção digitando:
+// 1 - Cadastrar usuário
+// 2 - Listar usuários
+// 3 - Sair do sistema
+
+// Utilize switch para exibir a ação correspondente a cada opção. Caso o valor seja inválido, exiba "Opção inválida".
+
+// Repita a solicitação até que a pessoa selecione a opção 3 para sair do sistema.
+
+
+
+ let opcao;
+
+do {
+
+    opcao = parseInt(prompt(
+        "--- MENU DO SISTEMA ---\n" +
+        "1 - Cadastrar usuário\n" +
+         "2 - Listar usuários\n" +
+         "3 - Sair do sistema\n\n" +
+         "Escolha uma opção:"
+     ));
+
+     switch (opcao) {
+         case 1:
+             alert("Ação: Cadastrando novo usuário...");
+            break;
+         case 2:
+            alert("Ação: Listando todos os usuários...");
+             break;
+         case 3:
+             alert("Saindo do sistema... Até logo!");
+            break;
+         default:
+             alert("Opção inválida! Tente novamente.");
+             break;
+     }
+        opcao = prompt("Digite uma opção (1, 2 ou 3):");
+
+ } while (opcao !== 3);
+
+ //2. Crie um programa para mostrar o nome do mês de acordo com o número digitado. 1 = "Janeiro", 2 = "Fevereiro" ....
+
+let numeroMes = parseInt(prompt("Digite um número de 1 a 12 para saber o nome do mês:"));
+switch (numeroMes) {
+    case 1:
+        alert("Janeiro");
+        break;
+    case 2:
+        alert("Fevereiro");
+        break;
+    case 3:
+        alert("Março");
+        break;
+    case 4:
+        alert("Abril");
+        break;
+    case 5:
+        alert("Maio");
+        break;
+    case 6:
+        alert("Junho");
+        break;
+    case 7:
+        alert("Julho");
+        break;
+    case 8:
+        alert("Agosto");
+        break;
+    case 9:
+        alert("Setembro");
+        break;
+    case 10:
+        alert("Outubro");
+        break;
+    case 11:
+        alert("Novembro");
+        break;
+    case 12:
+        alert("Dezembro");
+        break;
+    default:
+        alert("Número inválido! Por favor, digite um número entre 1 e 12.");
+}
+
+//3. Um sistema escolar classifica alunos por conceito.
+//Solicite ao usuário uma letra (A, B, C ou D) e utilize switch para exibir:
+
+//A → "Excelente desempenho"
+//B → "Bom desempenho"
+//C → "Desempenho regular"
+//D → "Desempenho insuficiente"
+//Caso seja informada outra letra, exiba "Conceito inválido".
+
+
+</script>
+
+<body>
+  
+</body>
+</html>
