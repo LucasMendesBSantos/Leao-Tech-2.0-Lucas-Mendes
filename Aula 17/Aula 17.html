@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 17</title>
+
+<script>
+
+
+
+let cadastros = [
+    {
+        nome: 'Lucas',
+        telefone: '11999999999',
+        cidade: 'Fortaleza',
+        idade: 30,
+        profissao: 'Desenvolvedor'
+    },
+    {
+        nome: 'Maria',
+        telefone: '11988888888',
+        cidade: 'São Paulo',
+        idade: 25,
+        profissao: 'Designer'
+    },
+    {
+        nome: 'João',
+        telefone: '11977777777',
+        cidade: 'Rio de Janeiro',
+        idade: 28,
+        profissao: 'Analista de Sistemas'
+    }
+]
+
+let opcao = ''
+
+while (opcao !== '3') {
+    opcao = prompt('Escolha uma opção:\n1 - Cadastrar\n2 - Listar\n3 - Sair');
+
+    
+    switch (opcao) {
+        case "1":
+            let cadastro = {};
+            cadastro.nome = prompt('Digite o seu nome:');
+            cadastro.telefone = prompt('Digite o seu número de telefone:');
+            cadastro.cidade = prompt('Digite a cidade:'); 
+            cadastro.idade = parseInt(prompt('Digite sua idade:'));
+            cadastro.profissao = prompt('Digite a profissão:');
+
+            cadastros.push(cadastro);
+            console.log('Cadastro realizado com sucesso!');
+            break;
+
+        case "2":
+            if (cadastros.length === 0) {
+                console.log('Nenhum cadastro encontrado.');
+            } else {
+                console.log('Lista de Cadastrados:');
+                for (let i = 0; i < cadastros.length; i++) {
+                    console.log(`Registro #${i + 1}`);
+                    console.log(`Nome: ${cadastros[i].nome} | Telefone: ${cadastros[i].telefone}`);
+                    console.log(`Cidade: ${cadastros[i].cidade} | Idade: ${cadastros[i].idade} | Profissão: ${cadastros[i].profissao}`);
+                    console.log('---------------------------');
+                }
+            }
+            break;
+
+        case "3":
+            console.log('Excluir cadastro:');
+
+            let indice = parseInt(prompt('Digite o número do registro que deseja excluir:'));
+                
+            indice -= 1;
+
+            if (indice >= 0 && indice < cadastros.length) {
+                cadastros.splice(indice, 1);
+                console.log('Cadastro excluído com sucesso!');
+            } else {
+                console.log('Número de registro inválido.');
+            }
+
+            break;
+
+            case "4":
+            console.log('saindo do sistema...');
+            break;
+            
+        default:
+            console.log('Opção inválida. Tente novamente.');
+            break;
+    }
+}
+
+
+//JSON
+
+let pessoa = {
+    nome: 'Lucas',
+    idade: 30,
+    profissao: 'Desenvolvedor'
+}
+
+let pessoa_json = '{"nome": "Lucas", "idade": 30, "profissao": "Desenvolvedor"}'
+
+//tipos de dados aceitos em JSON: string, number, boolean, null, array e object
+
+//converter js para json
+let pessoatojson = JSON.stringify(pessoa)
+
+//pode ser feito uma reatribuição:
+pesso = JSON.stringify(pessoa)
+
+//converter json para js
+pessoa_json = JSON.parse(pessoa_json)
+
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
