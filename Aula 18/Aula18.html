@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<script>
+    // function 0exibirmsgErro() {
+    //     console.log(`Erro: Ocorreu um erro ao processar a solicitação.`);
+    // }
+
+
+    // // função para calculadora: operação, num1, num2
+    // function calcularNumero(operacao, num1, num2) {
+    //     let resultado;
+    //     switch (operacao) {
+    //         case '+':
+    //             resultado = num1 + num2;
+    //             break;
+    //         case '-':
+    //             resultado = num1 - num2;
+    //             break;
+    //         case '*':
+    //             resultado = num1 * num2;
+    //             break;
+    //         case '/':
+    //             if (num2 !== 0) {
+    //                 resultado = num1 / num2;
+    //             } else {
+    //                 exibirmsgErro();
+    //                 return;
+    //             }
+    //             break;
+    //         default:
+    //             exibirmsgErro();
+    //             return;
+    //     }
+    //     console.log(`Resultado: ${resultado}`);
+        
+        
+    // }
+
+    // calcularNumero('+', 10, 5); // Resultado: 15
+    // calcularNumero('-', 10, 5); // Resultado: 5
+
+//############################# Outras formas de viar funções no js #############################
+// funçao expressa
+
+// let soma = function(num1, num2) {
+//     return num1 + num2;
+// }
+
+// console.log(soma(10, 5)); // Resultado: 15
+
+// ############################ Arrow function #############################
+
+// let subtrair = (num1, num2) => {
+//     return num1 - num2;
+// }
+
+// console.log(subtrair(10, 5)); // Resultado: 5
+
+// função com parametro default
+
+// function saudacao(nome = "Visitante") {
+//     console.log(`Olá, ${nome}! Bem-vindo ao nosso site.`);
+// }
+
+// saudacao(); // Olá, Visitante! Bem-vindo ao nosso site.
+// saudacao("Alice"); // Olá, Alice! Bem-vindo ao nosso site.
+
+
+// ####### função de callback ##########
+
+// Function processar(funcaoCallback) {
+//     console.log(`Iniciando o processamento...`);
+//     funcaoCallback();
+//     console.log(`Processamento concluído.`);
+// }
+
+// processar( () => {console.log(`processando lista de usuarios do sistema...`);} );
+
+// ################ função set timeout #################
+
+// setTimeout( () => {console.log(`Executando função após 2 segundos...`);}, 2000); //essa função executa a função passada como parâmetro após um tempo determinado (2000 milissegundos = 2 segundos)
+// ela é em millisegundos, então 1000 milissegundos = 1 segundo
+
+// fazer um menu com while para cadastrar, listar, deletar e sair do sistema, usando funções para cada opção do menu
+
+
+// 1. A variável deve estar fora das funções para ser global
+let cadastros = []; 
+
+function cadastrarContato() {
+    let nome = prompt("Digite o nome:");
+    let idade = parseInt(prompt("Digite a idade:"));
+    let cidade = prompt("Digite a cidade:");
+    let profissao = prompt("Digite a profissão:");
+
+   
+    if (!nome || isNaN(idade) || !cidade || !profissao) {
+        console.log("Erro: Preencha todos os campos corretamente.");
+        return;
+    }
+
+    if (idade < 0 || idade > 150) {
+        console.log("Erro: Idade inválida.");
+        return;
+    }
+
+    
+    let novoCadastro = { nome, idade, cidade, profissao };
+    cadastros.push(novoCadastro);
+    
+    console.log(`Contato ${nome} cadastrado com sucesso!`);
+}
+
+function listarContatos() {
+    if (cadastros.length === 0) {
+        console.log("Nenhum contato cadastrado.");
+        return;
+    }
+
+    console.log("### LISTA DE CONTATOS ###");
+    cadastros.forEach((item, index) => {
+        console.log(`${index + 1}. ${item.nome} | ${item.idade} anos | ${item.cidade} | ${item.profissao}`);
+    });
+}
+
+function deletarContato() {
+    let nomeParaDeletar = prompt("Digite o nome do contato que deseja excluir:");
+    
+  
+    let index = cadastros.findIndex(c => c.nome.toLowerCase() === nomeParaDeletar.toLowerCase());
+
+    if (index !== -1) {
+        cadastros.splice(index, 1);
+        console.log(`Contato "${nomeParaDeletar}" deletado.`);
+    } else {
+        console.log("Contato não encontrado.");
+    }
+}
+
+function menuPrincipal() {
+    let continuar = true;
+
+    while (continuar) {
+        let opcao = prompt("1. Cadastrar\n2. Listar\n3. Deletar\n4. Sair");
+
+        switch (opcao) {
+            case '1':
+                cadastrarContato();
+                break;
+            case '2':
+                listarContatos();
+                break;
+            case '3':
+                deletarContato();
+                break;
+            case '4':
+                console.log("Saindo...");
+                continuar = false;
+                break;
+            default:
+                console.log("Opção inválida.");
+        }
+    }
+}
+
+menuPrincipal();
+
+
+</script>
+
+
+<body>
+    
+</body>
+</html>
