@@ -173,6 +173,27 @@ function menuPrincipal() {
 menuPrincipal();
 
 
+   // forEach
+        let usuarios = ['Maria', 'João', 'Carla', 'Tiago']
+        usuarios.forEach((user) => {
+            console.log(`nome: ${user}`)
+        })
+
+        // Map
+        let precos = [100, 150, 89.99, 50]
+        let precosDesconto = precos.map((preco) => {
+            let desconto = 0.9 * preco
+            return desconto
+        })
+        console.log(precos)
+        console.log(precosDesconto)
+
+        // filter
+        let maisBaratos = precos.filter((preco) => { 
+            return preco < 100 
+        })
+
+
 </script>
 
 
