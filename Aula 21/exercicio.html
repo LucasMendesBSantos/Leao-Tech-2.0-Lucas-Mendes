@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+
+
+
+
+<body>
+   <div class="m-2">
+    <input id="enviar" type="text" placeholder="Numero">
+    <button onclick="enviar()" id="enviar" class="btn btn-secondary">Enviar</button>
+
+   </div>
+
+<div class="m-5">
+<div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="...">
+  <div class="card-body"></div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Titulo: <span></span></li>
+    <li class="list-group-item">Descrição: <span></span></li>
+    <li class="list-group-item">Preço: <span></span></li>
+  </ul>
+   
+  </div>
+</div>
+</body>
+<script>
+ function enviar (){
+    let numero = document.getElementById('enviar').value
+
+    let url = (`https://fakestoreapi.com/products/${numero}`)
+    
+
+    // 3. Passamos a variável 'url' sem aspas/crases dentro do fetch
+    fetch(url)
+    .then((resposta) => {
+        return resposta.json();
+    })
+    .then((dados) => {
+        console.log(dados); // Agora os dados do endereço aparecerão aqui
+    })
+    .catch((erro) => {
+        console.error("Erro na requisição:", erro);
+    });
+                }
+
+   
+    
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</html>
