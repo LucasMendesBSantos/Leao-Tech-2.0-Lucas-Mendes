@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - Operadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+
+<style>
+    .caixa{
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5px;
+    }
+    .arredondado{
+        border-radius: 20px;
+    }
+</style>
+<body style="margin-bottom: 500px;">
+   <h1>Alterando atributos e estilos no elementos </h1> 
+
+   <button onclick="mudarDeCor()" class="btn btn-info mb-2">Mudar de cor</button>
+
+   <button id="btn2" class="btn btn-secondary mb-2">+1 Caixa</button>
+
+   <div id="conteinerCaixas" class="d-flex">
+    <div id="caixa1" class="caixa bg-success">
+            Caixa 1
+    </div>
+    <div id="caixa2" class="caixa bg-danger ">
+        Caixa 2
+   </div>
+   </div>
+   
+   <h1 class="mt-5">Trabalhando com APIs</h1>
+   <button id="btnCEP" class="btn btn-outline-info">Enviar</button>
+
+   <input id="cep" type="text" placeholder="CEP">
+
+   <div id="resposta">
+   </div>
+   
+</body>
+
+<script>
+function mudarDeCor(){
+    let caixa = document.getElementById('caixa1')
+    // console.log(caixa.classList.remove('d-none'))
+    // caixa.classList.add('arredondado')
+    // caixa.classList.toggle('d-none')
+}
+
+let caixa2 = document.getElementById('caixa2')
+
+/*
+'click'        // clique
+'dblclick'     // clique duplo
+'mousedown'    // botão pressionado
+'mouseup'      // botão solto
+'mousemove'    // mover mouse
+'mouseenter'   // entrou no elemento
+'mouseleave'   // saiu do elemento
+'mouseover'    // passou por cima
+'mouseout'     // saiu de cima
+'contextmenu'  // clique direito
+
+'keydown'      // tecla pressionada
+'keyup'         // tecla solta
+'keypress'      // tecla digitada (menos usado)
+
+'submit'        // envio formulário
+'change'        // valor alterado
+'input'         // digitando
+'focus'         // ganhou foco
+'blur'          // perdeu foco
+'reset'         // reset formulário
+
+'load'          // página carregou
+'resize'        // redimensionou janela
+'scroll'        // scroll da página
+'beforeunload'  // antes de sair da página
+*/
+
+caixa2.addEventListener('click',() => {
+    caixa2.classList.remove('bg-danger')
+    caixa2.classList.add('bg-warning')
+})
+
+let btn2 = document.getElementById('btn2')
+btn2.addEventListener('click',() => {
+
+    for (let i=0;i<2;i++){
+        let caixa3 = document.createElement('div')
+        caixa3.classList.add('caixa', 'bg-warning')
+        caixa3.innerHTML = 'Caixa 3'
+
+        let containerCaixas = document.getElementById('conteinerCaixas')
+        console.log('teste')
+        containerCaixas.appendChild(caixa3)
+    }
+
+    let containerCaixas = document.getElementById('conteinerCaixas')
+
+    let caixa1 = document.querySelector('.caixa')
+    console.log(caixa1)
+    containerCaixas.removeChild(caixa1)
+
+})
+
+let btnCEP = document.getElementById('btnCEP')
+
+btnCEP.addEventListener('click',() => {
+    
+    let cep = document.getElementById('cep')
+    
+    fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
+    .then((resp) => {
+        return resp.json()
+    })
+    .then((dados) => {
+        console.log(dados)
+        let divResposta = document.getElementById('resposta')
+
+        for (let chave in dados){
+            let paragrafo = document.createElement('p')
+            paragrafo.innerHTML = `${chave} = ${dados[chave]}`
+            divResposta.appendChild(paragrafo)
+        }
+    })
+
+})
+
+
+
+
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</html>

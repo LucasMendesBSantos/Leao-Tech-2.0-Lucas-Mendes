@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Trabalhando com API's</h1>
+
+<button id="btncep" class="btn btn-secondary">Enviar</button>
+<input id="cep" type="text" placeholder="CEP">
+
+
+</body>
+
+<script>
+ 
+let btncep = document.getElementById('btncep');
+
+function enviarcep() {
+    // 1. Pegamos o .value para ter os números do CEP
+    let cep = document.getElementById('cep').value;
+
+    // 2. Montamos a URL (certifique-se de que o CEP não tenha espaços ou traços se preferir)
+    let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+    // 3. Passamos a variável 'url' sem aspas/crases dentro do fetch
+    fetch(url)
+    .then((resposta) => {
+        return resposta.json();
+    })
+    .then((dados) => {
+        console.log(dados); // Agora os dados do endereço aparecerão aqui
+    })
+    .catch((erro) => {
+        console.error("Erro na requisição:", erro);
+    });
+}
+
+// 4. Conectamos a função ao evento de clique do botão
+btncep.addEventListener('click', enviarcep);
+
+</script>
+
+
+</html>
