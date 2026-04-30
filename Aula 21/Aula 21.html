@@ -62,6 +62,7 @@ function mudarDeCor(){
 let caixa2 = document.getElementById('caixa2')
 
 /*
+EVENTO DE MOUSE
 'click'        // clique
 'dblclick'     // clique duplo
 'mousedown'    // botão pressionado
@@ -73,10 +74,12 @@ let caixa2 = document.getElementById('caixa2')
 'mouseout'     // saiu de cima
 'contextmenu'  // clique direito
 
+EVENTOS DE TECLADO
 'keydown'      // tecla pressionada
 'keyup'         // tecla solta
 'keypress'      // tecla digitada (menos usado)
 
+EVENTO DE FORMULÁRIO
 'submit'        // envio formulário
 'change'        // valor alterado
 'input'         // digitando
@@ -84,10 +87,15 @@ let caixa2 = document.getElementById('caixa2')
 'blur'          // perdeu foco
 'reset'         // reset formulário
 
+EVENTO DE PAGINA
 'load'          // página carregou
 'resize'        // redimensionou janela
 'scroll'        // scroll da página
 'beforeunload'  // antes de sair da página
+
+
+
+SE FOR USAR DENTRO DO HTML - TEM QUE USAR COM O "ON" ANTES DA CHAMADA
 */
 
 caixa2.addEventListener('click',() => {

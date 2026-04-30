@@ -10,12 +10,17 @@
 <body>
     <div class="m-2">
         <input id="idProduto" type="text" placeholder="ID do Produto (1 a 20)">
-        <button onclick="enviar()" class="btn btn-secondary">Enviar</button>
+        <button onclick="enviar()" class="btn btn-secondary">Buscar por ID</button>
+    </div>
+
+    <div class="m-2">
+        <input id="nomeProduto" type="text" placeholder="Nome do Produto">
+        <button onclick="buscarPorNome()" class="btn btn-primary">Buscar por Nome</button>
     </div>
 
     <div class="m-5">
         <div class="card" style="width: 18rem;">
-            <img id="foto" src="" class="card-img-top" alt="Imagem do produto">
+            <img id="foto" src="" class="card-img-top" alt="Imagem do produto" style="max-height: 200px; object-fit: contain;">
             <div class="card-body">
                 <h5 class="card-title">Detalhes do Produto</h5>
             </div>
@@ -28,6 +33,8 @@
     </div>
 
     <script>
+
+        // função para buscar por numero
         function enviar() {
             let numero = document.getElementById('idProduto').value;
             let url = `https://fakestoreapi.com/products/${numero}`;
@@ -39,8 +46,37 @@
                 })
                 .catch((erro) => {
                     console.error("Erro na requisição:", erro);
-                    alert("Produto não encontrado ou erro na conexão.");
+                    alert("Produto não encontrado.");
                 });
+        }
+
+        // buscar por nome
+
+        function buscarPorNome() {
+            let nomeBuscado = document.getElementById('nomeProduto').value.toLowerCase();
+            // poderia ter usado també, o toupercase
+            let url = "https://fakestoreapi.com/products";
+
+            fetch(url)
+                .then((resposta) => resposta.json())
+                .then((produtos) => {
+                    let encontrado = false;
+
+                    for (let i = 0; i < produtos.length; i++) {
+                        let tituloProduto = produtos[i].title.toLowerCase();
+
+                        if (tituloProduto.includes(nomeBuscado)) {
+                            preencherDados(produtos[i]);
+                            encontrado = true;
+                            break; 
+                                                }
+                    }
+
+                    if (!encontrado) {
+                        alert("Nenhum produto encontrado com esse nome.");
+                    }
+                })
+                .catch((erro) => console.error("Erro:", erro));
         }
 
         function preencherDados(produto) {
