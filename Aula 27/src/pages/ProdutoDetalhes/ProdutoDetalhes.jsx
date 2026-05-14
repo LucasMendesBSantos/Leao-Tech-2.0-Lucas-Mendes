@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import produtos from '../../Dados/produtos'
-import { useCart } from '../../context/CartContext'
 import './ProdutoDetalhes.css'
 
 const ProdutoDetalhes = () => {
   const { id } = useParams()
   const produto = produtos.find(p => p.id === parseInt(id))
-  const { addToCart } = useCart()
   const [cepData, setCepData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -133,7 +131,7 @@ const ProdutoDetalhes = () => {
                   </div>
 
                   <div className="mt-auto">
-                    <button className="btn btn-primary btn-lg w-100" onClick={() => addToCart(produto)}>
+                    <button className="btn btn-primary btn-lg w-100">
                       Adicionar ao Carrinho
                     </button>
                   </div>
