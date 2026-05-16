@@ -4,28 +4,25 @@ const QuemSomos = () => (
   <div>
     <h2>Quem somos</h2>
     <p>
-      Somos uma equipe apaixonada por tecnologia e desenvolvimento web, dedicada a
-      criar experiências significativas e funcionais.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut magnam at iure, optio nostrum pariatur quis odit dolores deserunt ipsa autem accusamus ipsum veniam recusandae qui impedit sint accusantium placeat.
     </p>
   </div>
 );
 
 const NossaHistoria = () => (
   <div>
-    <h2>Nossa História</h2>
+    <h2>Nossa Historia</h2>
     <p>
-      Desde o início, nosso objetivo foi aprender e compartilhar conhecimentos,
-      construindo projetos que inspiram e ensinam novos desenvolvedores.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt quas tenetur sunt, animi sequi qui fugiat culpa consequatur ea ullam dolore? Aliquid, voluptatem neque sequi assumenda autem beatae dolor. Pariatur?
     </p>
   </div>
 );
 
 const NossaMissao = () => (
   <div>
-    <h2>Nossa Missão</h2>
+    <h2>Nossa Missao</h2>
     <p>
-      Nossa missão é oferecer soluções criativas, promover a colaboração e
-      transformar ideias em resultados reais por meio da programação.
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt quae quas quos ea exercitationem, quasi iure consequatur, quidem reprehenderit dolorum itaque consequuntur praesentium repudiandae quo sapiente corrupti delectus. Nobis, velit!
     </p>
   </div>
 );
@@ -62,10 +59,10 @@ const Sobre = () => {
           onClick={() => setActiveSection("nossaHistoria")}
           style={{ marginRight: "8px" }}
         >
-          Nossa História
+          Nossa Historia
         </button>
         <button type="button" onClick={() => setActiveSection("nossaMissao") }>
-          Nossa Missão
+          Nossa Missao
         </button>
       </div>
       <section>{renderSection()}</section>
@@ -74,3 +71,5 @@ const Sobre = () => {
 };
 
 export default Sobre;
+
+
