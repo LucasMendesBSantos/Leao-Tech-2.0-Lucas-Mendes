@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16</title>
+</head>
+
+<script>
+
+    // um sistema pede ao usuário para digitar 5 numeros. Armazene osvaloresem ma array e 
+    // depois percorra o array para saber qual o maior e o menor numero, some todos os valores. Imprima os resultados no console.
+
+
+//     let valores = []
+
+// for (let i = 0; i < 5; i++) {
+//     let numero = parseFloat(prompt("Digite um número:"))
+//     valores.push(numero)
+// }
+
+// let maior = valores[0]
+// let menor = valores[0]
+// let aux = 0
+// let soma = 0
+
+
+// for (let i=0; i<valores.length; i++) {
+//     if (valores[i] > maior) {
+//         maior = valores[i]
+//     }
+//     if (valores[i] < menor) {
+//         menor = valores[i]
+//     }
+//     soma = (soma + valores[i])
+// }
+
+// console.log(`O maior numero é: ${maior}`)
+// console.log(`O menor numero é: ${menor}`)
+// console.log(`A soma dos numeros é: ${soma}`)
+
+
+// Crie um sistema para cadastrar uma lista de convidades, o usuario tera tres opções, cadastrar, entrar e sair. depois de cadastrar todos os usuarios, 
+// o sistema deve pedir para o convidado entrar, se o usuario existir, o sistema deve dar boas vindas, caso contrario, o sistema deve informar que o usuario não existe.
+//  O sistema deve continuar pedindo para o usuario entrar até que ele digite "sair".
+
+// let convidados = [];
+// let opcao = "";
+
+// while (opcao !== "sair") {
+//     opcao = prompt("Bem-vindo! Digite: cadastrar, entrar ou sair");
+
+//     if (opcao === "cadastrar") {
+//         let nome = prompt("Nome do convidado:");
+//         if (convidados.includes(nome)) {
+//             alert("Erro: Este nome já está na lista!");
+//         } else {
+//             convidados.push(nome);
+//             alert(nome + " cadastrado!");
+//         }
+//     } else if (opcao === "entrar") {
+//         let nomeEntrada = prompt("Quem deseja entrar?");
+//         if (convidados.includes(nomeEntrada)) {
+//             alert("Seja bem-vindo, " + nomeEntrada);
+//         } else {
+//             alert("Nome não encontrado.");
+//         }
+//     }
+// }
+// alert("Sistema encerrado.");
+
+// #################### Struct ######################
+
+// let carro = {
+//     marca: "BYD",
+//     modelo: "SONG PLUS",
+//     ano: 2026,
+//     cor: "Prata",
+//     opcionais: ["Teto solar", "Bancos de couro", "Sistema de som JBL"],
+//     pneu: {
+//         marcas: ["Michelin", "Pirelli", "Goodyear"],
+//         modelo: "P Zero",
+//         tamanho: 18 }
+// }
+
+// alert(`O carro é um ${carro.marca} ${carro.modelo} do ano ${carro.ano}
+//  na cor ${carro.cor}. Ele possui os seguintes opcionais: ${carro.opcionais}.`)
+
+//  carro.hibrido = true 
+//  alert(`O carro é um ${carro.marca} ${carro.modelo} do ano ${carro.ano}
+//     na cor ${carro.cor}. Ele possui os seguintes opcionais: ${carro.opcionais}. Ele é hibrido? ${carro.hibrido}`)
+
+// delete carro.hibrido
+// alert(`O carro é um ${carro.marca} ${carro.modelo} do ano ${carro.ano}
+//     na cor ${carro.cor}. Ele possui os seguintes opcionais: ${carro.opcionais}. Ele é hibrido? ${carro.hibrido}`)
+
+// let chavedocarro = Object.keys(carro) // Retorna um array com as chaves do objeto
+// console.log(`As chaves do objeto carro são: ${chavedocarro}`)
+
+// console.log(carro.pneu.marcas[2]) 
+
+
+// ------------------------------ Pessoa -------------------------------
+
+// let pessoa = {}
+
+// pessoa.nome = prompt("Digite o nome da pessoa:")
+// pessoa.idade = parseInt(prompt("Digite a idade da pessoa:"))    
+// pessoa.cpf = prompt("Digite o CPF da pessoa:")
+// pessoa.cidade = prompt("Digite a cidade da pessoa:")
+
+// alert(`A pessoa se chama ${pessoa.nome}, tem ${pessoa.idade} anos, CPF ${pessoa.cpf} e mora em ${pessoa.cidade}.`)
+
+// for (let chave in pessoa) {
+//     console.log(`${chave}: ${pessoa[chave]}`)
+// }
+
+// ------------------------------- Vetor de objetos -------------------------------
+
+// let pessoas = []
+
+// pessoa1 = {
+//     nome: "João",
+//     idade: 30,
+//     cpf: "123.456.789-00",
+//     cidade: "Fortaleza"
+// }
+// pessoa2 = {
+//     nome: "Maria",
+//     idade: 25,
+//     cpf: "987.654.321-00",
+//     cidade: "Maracanau"
+// }
+
+// pessoa3 = {
+//     nome: "Carlos",
+//     idade: 40,
+//     cpf: "111.222.333-44",
+//     cidade: "Eusebio"
+// }
+
+// pessoas.push(pessoa1)
+// pessoas.push(pessoa2)
+// pessoas.push(pessoa3)
+
+// for (let i = 0; i < pessoas.length; i++) {
+//     console.log(`Nome: ${pessoas[i].nome}, Idade: ${pessoas[i].idade}, CPF: ${pessoas[i].cpf}, Cidade: ${pessoas[i].cidade}`)
+// }
+
+// ##################### Exercicios ######################
+
+// 3. Controle de funcionário
+// Peça:
+// nome
+// cargo
+// salário
+// quantidade de faltas
+
+// Crie um objeto funcionário.
+// Se tiver mais de 3 faltas, mostre que o funcionário perdeu o bônus.
+// Caso contrário, mostre que receberá bônus de 10% sobre o salário.
+
+
+// let funcionario = {
+//     nome: prompt("Digite o nome do funcionário:"),
+//     cargo: prompt("Digite o cargo do funcionário:"),
+//     salario: parseFloat(prompt("Digite o salário do funcionário:")),
+//     faltas: parseInt(prompt("Digite a quantidade de faltas do funcionário:"))
+// }
+
+// if(funcionario.faltas > 3){
+//     alert(`Deu ruim, perdeu o bônus!`)
+// } else {
+//     let bonus = funcionario.salario * 0.10
+//     let salarioComBonus = funcionario.salario + bonus
+//     alert(`parabens, você recebeu ${bonus} de bônus! Seu salário total é: ${salarioComBonus}`)
+// }
+
+// 7. Sistema de estoque
+// Usando um array de objetos produtos, percorra a lista e:
+// exiba o nome dos produtos com estoque baixo (menor que 5)
+// exiba o valor total de cada item em estoque (preço × estoque)
+
+
+// let produtos = [
+
+//     produto1 = {
+//         nome: prompt("Digite o nome do produto:"),
+//         preco: parseFloat(prompt("Digite o preço do produto:")),
+//         estoque: parseInt(prompt("Digite a quantidade em estoque do produto:"))
+//     },
+//     produto2 = {
+//         nome: prompt("Digite o nome do produto:"),
+//         preco: parseFloat(prompt("Digite o preço do produto:")),
+//         estoque: parseInt(prompt("Digite a quantidade em estoque do produto:"))
+//     },
+//     produto3 = {
+//         nome: prompt("Digite o nome do produto:"),
+//         preco: parseFloat(prompt("Digite o preço do produto:")),
+//         estoque: parseInt(prompt("Digite a quantidade em estoque do produto:"))
+//     }
+
+// ]
+
+// for (let i = 0; i < produtos.length; i++) {
+//     if (produtos[i].estoque < 5) {
+//         alert(`O produto ${produtos[i].nome} está com estoque baixo!`)
+//         console.log(`O produto ${produtos[i].nome} está com estoque baixo!`)
+//     }
+//     let valorTotal = produtos[i].preco * produtos[i].estoque
+//         alert(`O valor total do produto ${produtos[i].nome} em estoque é: ${valorTotal}`)
+//          console.log(`O valor total do produto ${produtos[i].nome} em estoque é: ${valorTotal}`)
+// }
+
+// 1. Cadastro de produto
+// Crie um programa que peça via prompt:
+// nome do produto
+// preço
+// quantidade em estoque
+
+// Depois monte um objeto chamado produto com essas informações e exiba:
+
+// nome
+// valor total em estoque (preço × quantidade)
+
+
+// let produto = {
+//     nome: prompt("Digite o nome do produto:"),
+//     preco: parseFloat(prompt("Digite o preço do produto:")),
+//     estoque: parseInt(prompt("Digite a quantidade em estoque do produto:"))
+// }
+
+// console.log(`Nome: ${produto.nome}`)
+// console.log(`Valor total em estoque: ${produto.preco * produto.estoque}`)
+
+
+// 2. Cadastro de aluno
+// Peça via prompt:
+// nome do aluno
+// nota 1
+// nota 2
+
+// Monte um objeto aluno com essas informações.
+// Calcule a média e mostre:
+
+// “Aprovado” se média >= 7
+// “Recuperação” se média >= 5 e < 7
+// “Reprovado” se média < 5
+
+// let aluno = {
+//     nome: prompt("Digite o nome do aluno:"),
+//     nota1: parseFloat(prompt("Digite a nota 1 do aluno:")),
+//     nota2: parseFloat(prompt("Digite a nota 2 do aluno:"))
+// }
+
+// let media = (aluno.nota1 + aluno.nota2) / 2
+
+// if(media >= 7) {
+//     alert(`Aluno ${aluno.nome} aprovado! Média: ${media}`)
+// } else if (media >= 5 && media < 7) {
+//     alert(`Aluno ${aluno.nome} em recuperação! Média: ${media}`)
+// } else {
+//     alert(`Aluno ${aluno.nome} reprovado! Média: ${media}`)
+// }
+
+
+
+
+
+</script>
+
+
+
+<body>
+    
+</body>
+</html>

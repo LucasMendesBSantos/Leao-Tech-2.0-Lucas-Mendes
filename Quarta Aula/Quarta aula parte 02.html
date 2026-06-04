@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="Quarta aula parte02.css">
+</head>
+<body>
+    <h1>Introdução ao CSS</h1>
+    
+    <br>
+    <ul>
+        <li>CSS in line - é adicionado diretamente a um elemento HTML usando o atributo style</li>
+        <li>Internal CSS - é inserido na própria página HTML, geralmente dentro da tag style> no cabeçalho (head) do documento:</li>
+        <li>CSS Externo -  é  colocado em um arquivo separado (normalmente com extensão .css) e é vinculado à página HTML usando a tag link no cabeçalho do documento.</li>
+    </ul>
+
+    <!-- Quanto a ordem de prioridade o inline tem a maior prioridade, o externo é o segundo na prioridade e o interno é o terceiro em prioridade, caso fique com o efeito em cascata, o ultimo comando vai ter a prioridade -->
+
+    <h1>Teste h1</h1>
+    <h2>Teste h2</h2>
+    <h3>Teste h3</h3>
+
+<style>  /*lembrando que todo css interno é dentro do Style, para externos, vamos criar um outro arquivo
+
+/* Para referenciar tags, basta colocar ela e abrir com as {}, mas para chamar uma div, precisa do # */
+
+h1{   
+    color: blueviolet;
+}
+
+/* no h2, ele esta de forma externa, no arquivo Quarta aula parte02.css */
+
+h3{
+    color: chartreuse;
+}
+
+</style>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 parte2</title>
+</head>
+<body>
+    <!--ID é para identificar um item unico-->
+    <!-- A tag "Class"  é para colocar classe em varias partes do código que vai ser util em CSS-->
+
+    <!--Formuários-->
+
+    <h1>Formulários</h1>
+
+    <form action="" > <!-- o action é só pra saber para onde esse formulário vai ser enviado-->
+
+        <label for="Nome">Nome</label>
+        <br>
+        <input  type="text" name="Nome" id="Nome" placeholder="Digite aqui!!"> <!--o ID se viincula com o for do Label --> <!--placeholder é o nome qe fica dentro da barra de escrever-->
+       <br>
+       <br>
+        <label for="">Senha</label>
+        <input type="password" name="Senha" id="Senha" placeholder="Digite a senha Aqui!!!!!"> <!--novamente o ID sendo puxado-->
+        <br>
+        <br>
+        <label for="email">E-mail</label>
+        <input type="email" name="Email" id="email" placeholder="Digite o Email aqui">
+        <br>
+        <br>
+
+        <label for="Idade">Idade</label>
+        <input type="number" step="2" name="Idade" id="Idade"  min="0" placeholder="digite aqui sua idade">  <!-- Min é o valor minimo// Step é o valor qu vai aumentando, no caso, de 2 em 2-->
+        <br>
+        <br>
+        <label for="Densenvolvimento">Vaga</label><br>
+        <input type="radio" id="Densenvolvimento" name="Vaga" value="Desenvolvedor">Desenvolvedor<br>  <!-- o radio só aceita uma opção-->
+        <br>
+        <label for="Qualidade"></label>
+        <input type="radio" id="Qualidade" name="Vaga" value="Qualidade">Qualidade<br>
+        <br>
+        <label for="Front"></label>
+        <input type="radio" id="Front" name="Vaga" value="Front">Front<br>
+        <br>
+        <label for="Back"></label>
+        <input type="radio" id="Back" name="Vaga" value="Back">Back<br>
+        <br><br><br>
+
+
+<input type="checkbox" name="linguagens" id="python" value="python">  <!-- O label em cima ou em baixo do imput só é pra dizer qual lado o nome vai ficar da caixa de interação-->
+<label for="python">Python</label>
+<br>
+
+<input type="checkbox" name="JavaScript" id="js" value="js">
+<label for="js">JavaScript</label>
+<br>
+
+<input type="checkbox" name="C++" id="C++" value="C++">
+<label for="C++">C++</label>
+<br>
+<br><br>
+<label for="Comentario"> Comentario </label><br>
+
+<textarea name="Comentario" id="Comentario" rows="5" cols="30" placeholder="Digite aqui" maxlength="100" required></textarea> <!--required é quando é obrigatório mandar// Max length é o numero de caracteres // rows e cols é só o tamanho da caixa-->
+<br>
+<br>
+<label for="Cidade">Cidade</label>
+    <select name="Cidade" id="Cidade"> <!--Select é para opção-->
+<option value="Selecione">Selecione</option> <!-- Option é só pra fazer as opções-->
+<option value="Fortaleza">Fortaleza</option>
+<option value="Eusebio">Eusebio</option>
+<option value="Horizonte">Horizonte</option>
+    </select>
+<br>
+<br>
+<br>
+
+
+
+<br><br><br>
+        <input type="submit" value="Enviar" id=""> <!-- odo input que não tiver Value, tem que colocar-->
+    </form>
+    
+</body>
+</html>

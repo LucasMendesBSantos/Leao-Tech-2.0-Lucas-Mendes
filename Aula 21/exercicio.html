@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="m-2">
+        <input id="idProduto" type="text" placeholder="ID do Produto (1 a 20)">
+        <button onclick="enviar()" class="btn btn-secondary">Enviar</button>
+    </div>
+
+    <div class="m-5">
+        <div class="card" style="width: 18rem;">
+            <img id="foto" src="" class="card-img-top" alt="Imagem do produto">
+            <div class="card-body">
+                <h5 class="card-title">Detalhes do Produto</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Título:</strong> <span id="titulo"></span></li>
+                <li class="list-group-item"><strong>Descrição:</strong> <span id="descricao"></span></li>
+                <li class="list-group-item"><strong>Preço:</strong> $ <span id="preco"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function enviar() {
+            let numero = document.getElementById('idProduto').value;
+            let url = `https://fakestoreapi.com/products/${numero}`;
+
+            fetch(url)
+                .then((resposta) => resposta.json())
+                .then((dados) => {
+                    preencherDados(dados);
+                })
+                .catch((erro) => {
+                    console.error("Erro na requisição:", erro);
+                    alert("Produto não encontrado ou erro na conexão.");
+                });
+        }
+
+        function preencherDados(produto) {
+            document.getElementById('foto').src = produto.image;
+            document.getElementById('titulo').innerText = produto.title;
+            document.getElementById('descricao').innerText = produto.description;
+            document.getElementById('preco').innerText = produto.price;
+        }
+    </script>
+</body>
+</html>

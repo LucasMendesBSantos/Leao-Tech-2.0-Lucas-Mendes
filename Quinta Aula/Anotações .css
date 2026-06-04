@@ -1,0 +1,27 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 500px;
+}
+h1{
+    
+}
+
+
+
+
+.azul{
+    background-color: blue;
+    width: 100px;
+}
+.vermelho{
+    background-color: red;
+    width: 200px;
+}
+.roxo{
+    background-color: purple;
+    width: 300px;
+}
+.verde{
+    background-color: green;
+    width: 400px;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!--
+    1°
+ primeiramente, clica co o botão direito na pasta e abre o terminal - - - ou faz plo cd, ls até ficar dentro da pasta
+ 
+no terminal do git:
+
+npm create vite@latest
+
+coloca o nome da pasta, o modo que vai ser programado e instala as dependecias
+####################################################################################
+
+2°
+
+limpar o app.css, app.jsx e index.css 
+
+vai no app criar a função inicial:
+
+function App(){
+  return(
+    <h1>Olá Mundo</h1>
+  )
+}
+export default App
+
+
+EX:
+function Footer(){
+    return(
+        <>
+        
+
+
+        </>
+    )
+}
+export default Footer;
+
+#######################################################################################
+3°
+
+Criar a pasta dentro da SRC, chamada components, pages, services e routs.
+
+dentro de assets: criar duas pastas, images e css
+
+#########################################################################################
+4°
+
+dentro da pasta componets, criar duas pastas, uma chamada Header com duas pastas dentro dela: Header.jsx e uma Header.css
+
+//////
+
+e a outra chamada Footer com duas pastas: Footer.jsx e Footer.css
+
+OBS: Tudo que for ser criado dentro das pastas, tem que ter o ARQUIVO.css e ARQUIVO.jsx, para manter a organização do projeto e facilitar a manutenção da pagina.
+
+
+##########################################################################################
+
+******* INTALANDO O BOOTSTRAP *******
+
+no terminal do git, digitar: 
+
+npm install bootstrap
+
+e ta instalado o bootstrap dentro da pasta de modulos.
+
+
+Agora tem que i na main.jsx e importar o bootsrap, só colocar na linha
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+e
+
+import 'bootstrap/dist/js/bootstrap.bundle.js';
+
+
+##########################################################################################
+FORMA DE PENSAMENTO REACT: TEM QUE PENSAR EM COMPONENTES, PARA PODER SEPARAR O CODIGO EM PARTES E PODER REUTILIZAR O CODIGO
+
+
+
+
+##########################################################################################
+5°
+
+A estrutura para qualquer componente é:
+
+function NomeDoComponente(){
+  return(
+    <>
+      o codigo aqui dentro, não esquecer de colocar as funções vazias
+    </>
+  )
+}
+
+###### <> </>  #########
+
+<> </>  a tag vazia é usada só para melhor encapsulaento do codigo.
+
+
+########## WARNING ##############
+
+ALGUMAS CLASSES PARA O BOOTSTRAP SÃO AS MESMAS PARA O REACT COM FUNCIONALIDADES DIFERENTES, LOGO,  TEM QUE MUDAR ALGUMAS COISAS
+
+EX: class no bootstrap muda para className no react --------------------------;> da pra usar o ctrl + F para achar a palavra, aperta na setinha da esquerda e escreve o nome da palavra que quer mudar e dps muda todos nos planetinhas.
+EX: Tag "a" do html ela recarrega a pagina, vamos sbstituir ela por a tag "link"
+
+#####################################################################################################
+6°
+IMPORTAÇÃO DE COMPONENTES
+
+
+
+
+
+
+#########################################################################################
+OBS:
+
+Quando for para colocar o servidor no ar, verificar se esta na pasta do projeto, caso não esteja, navegar até a pasta do proeto e lá, pode mandar o "npm run dev"
+-->
+
+
+
+</body>
+</html>

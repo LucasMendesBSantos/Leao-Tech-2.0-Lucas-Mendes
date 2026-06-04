@@ -1,0 +1,32 @@
+header{
+    background-color: purple;
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+}
+
+h2{
+    text-align: center;
+    color: blueviolet;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 60px;
+}
+
+body{
+    border: 5px solid purple;
+}
+
+ul{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+ol{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h3{
+    background-color: blueviolet;
+    color: white;
+    font-size: 30px;
+}

@@ -1,0 +1,33 @@
+.os4{
+    display: inline-block;
+    background-color: aquamarine;
+    margin: 50px;
+    text-align: center;
+    padding: 50px;
+    border: 3px solid black;
+}
+
+#div0{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#sub0{
+    background-color: blue;
+height: 20px;
+width: 20px;
+
+}
+
+#sub1{
+    background-color: red;
+    height: 20px;
+    width: 50px;
+}
+
+#sub2{
+    background-color: goldenrod;
+    height: 20px;
+    width: 100px;
+}

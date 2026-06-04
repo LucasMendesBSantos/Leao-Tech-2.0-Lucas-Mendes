@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro de Usuários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .user-card img { height: 200px; object-fit: cover; }
+        .container { max-width: 800px; margin-top: 30px; }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container">
+    <div class="card shadow-sm p-4 mb-4">
+        <h2 class="mb-4">Cadastro de Usuário</h2>
+        <form id="userForm">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nome</label>
+                    <input type="text" id="nome" class="form-control" required>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Idade</label>
+                    <input type="number" id="idade" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">CPF</label>
+                    <input type="text" id="cpf" class="form-control" placeholder="000.000.000-00" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">URL da Foto</label>
+                    <input type="url" id="foto" class="form-control" placeholder="https://exemplo.com/foto.jpg" required>
+                </div>
+                <div class="col-12 d-flex gap-2 mt-3">
+                    <button type="button" onclick="cadastrar()" class="btn btn-primary">Cadastrar</button>
+                    <button type="button" onclick="listar()" class="btn btn-success">Listar</button>
+                    <button type="button" onclick="editar()" class="btn btn-warning">Editar (pelo CPF)</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="listaUsuarios" class="row row-cols-1 row-cols-md-3 g-4">
+        </div>
+</div>
+
+<script>
+    
+    let usuarios = [
+        { nome: "Ana Silva", idade: 28, cpf: "11111111111", foto: "https://thumbs.dreamstime.com/b/homem-cinzento-do-placeholder-da-foto-pessoa-gen%C3%A9rica-silhueta-cinzenta-em-um-fundo-branco-144511705.jpg" },
+        { nome: "Bruno Costa", idade: 34, cpf: "22222222222", foto: "https://thumbs.dreamstime.com/b/homem-cinzento-do-placeholder-da-foto-pessoa-gen%C3%A9rica-silhueta-cinzenta-em-um-fundo-branco-144511705.jpg" },
+        { nome: "Carla Souza", idade: 22, cpf: "33333333333", foto: "https://thumbs.dreamstime.com/b/homem-cinzento-do-placeholder-da-foto-pessoa-gen%C3%A9rica-silhueta-cinzenta-em-um-fundo-branco-144511705.jpg" }
+    ];
+
+   
+    const getInputs = () => ({
+        nome: document.getElementById('nome').value,
+        idade: document.getElementById('idade').value,
+        cpf: document.getElementById('cpf').value,
+        foto: document.getElementById('foto').value
+    });
+
+    
+    function cadastrar() {
+        const novoUsuario = getInputs();
+        
+        if (!novoUsuario.nome || !novoUsuario.cpf) {
+            alert("Preencha os campos obrigatórios!");
+            return;
+        }
+
+      
+        const index = usuarios.findIndex(u => u.cpf === novoUsuario.cpf);
+        if (index !== -1) {
+            usuarios[index] = novoUsuario;
+            alert("Usuário atualizado com sucesso!");
+        } else {
+            usuarios.push(novoUsuario);
+            alert("Usuário cadastrado com sucesso!");
+        }
+        
+        document.getElementById('userForm').reset();
+    }
+
+  
+    function listar() {
+        const container = document.getElementById('listaUsuarios');
+        container.innerHTML = ""; // Limpa a lista antes de renderizar
+
+        usuarios.forEach(user => {
+            container.innerHTML += `
+                <div class="col">
+                    <div class="card h-100 shadow-sm user-card">
+                        <img src="${user.foto}" class="card-img-top" alt="${user.nome}">
+                        <div class="card-body">
+                            <h5 class="card-title">${user.nome}</h5>
+                            <p class="card-text">
+                                <strong>Idade:</strong> ${user.idade} anos<br>
+                                <small class="text-muted">CPF: ${user.cpf}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    
+    function editar() {
+        const cpfBusca = document.getElementById('cpf').value;
+        const usuarioEncontrado = usuarios.find(u => u.cpf === cpfBusca);
+
+        if (usuarioEncontrado) {
+            document.getElementById('nome').value = usuarioEncontrado.nome;
+            document.getElementById('idade').value = usuarioEncontrado.idade;
+            document.getElementById('foto').value = usuarioEncontrado.foto;
+            alert("Dados carregados! Altere o que desejar e clique em Cadastrar para salvar.");
+        } else {
+            alert("Usuário com este CPF não encontrado.");
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

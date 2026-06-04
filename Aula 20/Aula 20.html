@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 20 - Operadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<style>
+
+.caixa{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+</style>
+
+</head>
+
+
+
+
+
+<!-- onload = evento que ocorre quando a página é carregada
+     onscroll = evento que ocorre quando a página é rolada
+     onresize = evento que ocorre quando a página é redimensionada
+     onclick = evento que ocorre quando o usuário clica no elemento
+     ondblclick = evento que ocorre quando o usuário clica duas vezes no elemento
+     onmouseover = evento que ocorre quando o usuário passa o mouse sobre o elemento
+     onmouseout = evento que ocorre quando o usuário retira o mouse do elemento -->
+
+<body style="margin-bottom: 500px;">
+    <!-- <div class="Container">
+        <h1>Aula de Eventos e DOM</h1>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-around">
+                <div class="caixa bg-success">
+                    <p>Caixa 1</p>
+                </div>
+                <div class="caixa bg-black">
+                    <p>Caixa 2</p>
+                </div>
+                <div class="caixa bg-secondary">
+                    <p>Caixa 3</p>
+                </div>
+
+            </div>
+        </div>
+
+       <div class="mt-5">
+         <button class=" btn btn-success" onclick="funcao1()">Traduzir para ingles</button>
+       </div>
+    
+    </div> -->
+
+    <!-- <script>
+        let lingua = 'pt-br';
+
+
+        function funcao1(){
+            let caixas = document.getElementsByClassName('caixa');
+            for(let i = 0; i < caixas.length; i++){
+                caixas[i].innerHTML = `<p>Box ${i + 1}</p>`;
+            }
+        }
+    </script> -->
+
+
+    <!-- <div class="container">
+
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" name="peso">
+
+                </div>
+                <div>
+                    <label for="altura">Altura (m):</label>
+                    <input type="number" id="altura" name="altura" >
+                </div>
+                <div>
+                    <button onclick="calcularIMC()">Calcular IMC</button>
+                </div>
+
+                <div id="resultado" class="mt-3"></div>
+
+            </div>
+
+        </div> -->
+
+
+        <!-- fazer um formulário com nome, idade, cidade e profissão. terá dois botões: um para enviar e outro para listar os cadastrados. savar os dados em arrays de objetos, se quiser listar, lê os cadastrados em uma outra div -->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div>
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" name="idade">
+            </div>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade">
+            </div>
+            <div>
+                <label for="profissao">Profissão:</label>
+                <input type="text" id="profissao" name="profissao">
+            </div>
+            <div>
+                <button onclick="cadastrar()">Cadastrar</button>
+                <button onclick="listar()">Listar Cadastrados</button>
+            </div>
+        </div>
+    </div>
+    <div id="resultado" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+    let cadastrados = [];
+
+    function cadastrar() {
+        
+        let inputNome = document.getElementById('nome');
+        let inputIdade = document.getElementById('idade');
+        let inputCidade = document.getElementById('cidade');
+        let inputProfissao = document.getElementById('profissao');
+
+        
+        let novoCadastro = {
+            nome: inputNome.value,
+            idade: inputIdade.value,
+            cidade: inputCidade.value,
+            profissao: inputProfissao.value
+        };
+
+
+        cadastrados.push(novoCadastro);
+        alert('Cadastro realizado com sucesso!');
+
+       
+        inputNome.value = '';
+        inputIdade.value = '';
+        inputCidade.value = '';
+        inputProfissao.value = '';
+    }
+
+    function listar() {
+        let resultado = document.getElementById('resultado');
+        resultado.innerHTML = ''; 
+
+        if (cadastrados.length > 0) {
+            cadastrados.forEach((cadastro, index) => {
+             
+                resultado.innerHTML += `<p>${index + 1} - Nome: ${cadastro.nome}, Idade: ${cadastro.idade}, Cidade: ${cadastro.cidade}, Profissão: ${cadastro.profissao}</p>`;
+            });
+        } else {
+            resultado.innerHTML = '<p>Nenhum cadastro encontrado.</p>';
+        }
+    }
+</script>
+
+        <script>
+            // function calcularIMC(){
+            //     let inputpeso = document.getElementById('peso');
+            //     let inputaltura = document.getElementById('altura');
+
+            //     let peso = parseFloat(inputpeso.value);
+            //     let altura = parseFloat(inputaltura.value);
+
+            //     if(peso > 0 && altura > 0){
+            //         let imc = peso / (altura * altura);
+            //         let resultado = document.getElementById('resultado');
+            //         resultado.innerHTML = `<p>Seu IMC é: ${imc}</p>`;
+            //         inputpeso.value = '';
+            //         inputaltura.value = '';
+            //     }else{
+            //         alert('Por favor, insira valores válidos para peso e altura.');
+            //         inputpeso.value = '';
+            //         inputaltura.value = '';
+            //     }
+            // }
+
+
+            
+
+        </script>
+
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+</html>

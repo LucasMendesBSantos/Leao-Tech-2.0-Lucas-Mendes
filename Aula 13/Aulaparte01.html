@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13</title>
+
+
+    <script>
+
+// //Identifique a idade para criança, adolecente, adulto e idoso
+
+let idade
+
+idade = prompt (`Qual sua idade?`)
+idade = parseInt(idade)
+
+if (idade < 12) {
+    console.log("Você é criança");
+} 
+else if (idade >= 12 && idade < 18) {
+    console.log("Você é adolescente");
+} 
+else if (idade >= 18 && idade < 60) {
+    console.log("Você é adulto");
+} 
+else if (idade >= 60 && idade < 120) {
+    console.log("Você é idoso");
+} 
+else {
+    console.log("Você é um cadáver, avaliar se você não é o Tio Paulo");
+}
+
+// //A mesma questão e a pessoa tem que ter carteira de motorista
+
+
+let cnh = confirm("Você tem carteira?");
+
+if (idade < 12) {
+    console.log("Você é criança");
+} 
+else if (idade >= 12 && idade < 18) {
+    console.log("Você é adolescente");
+} 
+else if (idade >= 18 && idade < 60) {
+    console.log("Você é adulto");
+} 
+else if (idade >= 60 && idade < 120) {
+    console.log("Você é idoso");
+} 
+else {
+    console.log("Você é um cadáver, avaliar se você não é o Tio Paulo");
+}
+
+
+if (cnh && idade < 18) {
+    console.log("Espera aí... Como você tem CNH sendo menor de idade? mentiroso, acesso bloqueado, ip bloqueado, pf acionada, conselho tutelar ativado.");
+}
+
+// 1° - verificação de acesso ao cinema
+// crie um programa que receba a idade e se a pessoa tem ingresso.
+// ela só pode entrar se a idade for maior que 16 anos
+
+let ingresso
+
+idade = prompt (`Qual sua idade?`)
+idade = parseInt(idade)
+
+ingresso = confirm(`Você tem ingresso?`)
+
+if (ingresso == true){
+    if (idade > 16){
+        console.log(`Liberado, Bom filme`)
+    }
+    else{
+        console.log(`Filme improprio para sua idade.`)
+    }
+
+}
+else{
+    console.log(`Adquira seu ingresso`)
+}
+
+
+
+// // 2. Validação de login
+//         // Crie um programa que peça o nome de usuário e a senha, se o nome de usuário for 'admin' e a 
+//         // senha for 'admin123' diga que ela conseguiu logar se ela errar uma das duas diga 'usuário não encontrado'
+
+        let usuario
+        let senha
+
+    usuario = prompt(`Qual o seu usuario`)
+    senha = prompt(`Qual a sua senha`)
+
+        if(usuario == "admin" || usuario == "Admin" || usuario == "ADMIN"){
+            if(senha == "Admin123" || senha == "admin123" || senha == "ADMIN123"){
+                console.log(`Logado, Bem Vindo User`)
+            }
+            else{
+                console.log(`Senha invalida`)
+        }
+    }
+        else{
+            console.log(`Usuario invalido!!`)
+            
+        }
+
+
+// // 3. Frete grátis
+// //  Crie um programa que receba o valor de uma compra e se o cliente é VIP.
+// //  O cliente ganhará frete grátis se a compra for mais de 1000 ou se for VIP.
+
+let valorcompra
+let VIP
+let frete
+
+valorcompra = prompt(`Qual o valor da sua compra?`)
+valorcompra = parseFloat(valorcompra)
+
+VIP = confirm(`Você é usuario vip?`)
+
+if (VIP == true){
+    console.log(`valor do frete é gratis!`)
+}
+else if( valorcompra >= 1000){
+    console.log(`valor do frete é gratis!`)
+}
+else{
+    console.log(`Seu frete é 30% do valor do seu produto`)
+    frete = (valorcompra * 0,3)
+    frete = parseFloat(frete)
+    console.log(`O valor da sua compra é de ${frete}`)
+}
+
+// 4. Bloqueio de acesso
+// Crie um programa que receba se o usuário digitou senha correta. Se a senha não estiver correta, mostrar "Acesso negado".
+
+
+
+    usuario = prompt(`Qual o seu usuario`)
+    senha = prompt(`Qual a sua senha`)
+
+        if(usuario == "admin" || usuario == "Admin" || usuario == "ADMIN"){
+            if(senha == "Admin123" || senha == "admin123" || senha == "ADMIN123"){
+                console.log(`Logado, Bem Vindo User`)
+            }
+            else{
+                console.log(`Senha invalida`)
+            }
+        }
+        else{
+            console.log(`Usuario invalido!!`)
+        
+        }
+
+
+// // 5. Entrada em festa
+// // Receba idade e se tem convite.
+// // Se menor de 16 -> “Entrada proibida”
+// // Se ≥ 16 e não tem convite -> “Precisa de convite”
+// // Se ≥ 16 e tem convite -> “Entrada liberada”
+
+let convite
+
+idade = prompt (`Qual sua idade?`)
+idade = parseInt(idade)
+
+convite = confirm(`Você tem convite?`)
+
+if (ingresso == true){
+    if (idade > 16){
+        console.log(`Liberado, Boa festa`)
+    }
+    else{
+        console.log(`Festa impropria para sua idade.`)
+    }
+
+}
+else{
+    console.log(`Adquira seu Convite`)
+}
+
+
+// // 6. Compra com desconto especial
+// // Receba valor da compra, se é VIP e se tem cupom.
+// // Se valor ≥ 100
+// // Dentro disso: ganha desconto se for VIP ou tiver cupom
+// // Senão: sem desconto
+
+let cupom
+
+valorcompra = prompt(`Qual o valor da sua compra?`)
+valorcompra = parseFloat(valorcompra)
+
+VIP = confirm(`Você é usuario vip?`)
+cupom = confirm (`Você tem cupom?`)
+
+if (VIP == true){
+    console.log(`valor do frete é gratis!`)
+}
+else if( valorcompra >= 100){
+    console.log(`valor do frete é gratis!`)
+}
+else if(cupom == "100OF" || cumpom == "100of"){
+
+console.log(`valor do frete é gratis!`)
+}
+else{
+    console.log(`Seu frete é 30% do valor do seu produto`)
+    frete = (valorcompra * 0,3)
+    frete = parseFloat(frete)
+    console.log(`O valor da sua compra é de ${frete}`)
+}
+
+
+// // 7.Liberação de empréstimo
+// // Receba salário, score e se é cliente antigo.
+// // Se salário ≥ 2000
+// // Dentro disso: aprova se score ≥ 700 ou (score ≥ 500 e cliente antigo)
+// // Senão: empréstimo negado 
+
+let salario
+let score
+let clientevelho
+
+salario = parseFloat(prompt(`Qual o seu salario?`))
+score = parseInt(prompt(`Qual o seu score?`))
+clientevelho = confirm(`Você é um cliente antigo?`)
+
+
+if(salario >= 2000){
+    console.log(`Parabens, você tem credito pré-aprovado conosco, consulte o vendedor`)
+}
+else if(score >= 700){
+    console.log(`Parabens, você tem credito pré-aprovado conosco, consulte o vendedor`)
+}
+else if (score >= 500 && clientevelho == true){
+    console.log(`Parabens, você tem credito pré-aprovado conosco, consulte o vendedor`)
+}
+else{
+    console.log(`Infelizmente, limite não pré-aprovado, falar com vendedor sobre condições especiais`)
+}
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03</title>
+</head>
+<body>
+<h1>Trabalhando com Tabelas</h1>
+
+<table>
+   
+
+    <tr> <!--tr é uma Linha -->
+        <th>Nome</th> <!--th é cabelçalho de coluna-->
+        <th>Idade</th>
+        <th>Cidade</th>
+    </tr>
+
+    <tr>
+        <td>João</td>
+        <td>29</td>
+        <td>Fortaleza</td>
+    </tr>
+
+    <tr>
+        <td>Maria</td><!--td é Coluna-->
+        <td colspan="2">28</td>  <!-- O Colspan é para anexar duas colunas em uma só, dependendo do numero de celulas que queira ser ocupada, só colocar o numero de celulas desejadas + 1-->
+        <!--<td> Caucaia</td>-->
+    </tr>
+
+    <br>
+    <br>
+
+    <table id="TabelasLinguagens">
+        <tr> 
+            <th>Linguagem</th>
+            <th>framework</th>
+        </tr>
+
+        <tr>
+            <td rowspan="2">python</td>
+            <td>Flask</td>
+        </tr>
+
+         <tr>
+            <!--<td>python</td>--> <!-- este codgo do python foi anexado junto ao de cima-->
+            <td>FastAPI</td>
+        </tr>
+        
+
+        <tr>
+            <td rowspan="2">JavaScript</td>
+            <td>React</td>
+        </tr>
+
+         <tr>
+            <!--<td>JavaScript</td>-->
+            <td>Angular</td>
+        </tr>
+        
+
+    </table>
+
+</table>
+
+<Style>
+    table, td, tr,th{
+        border: 1px, solid,
+        black;
+        border-collapse: collapse;
+        padding: 3px;
+    }
+</Style>
+    
+</body>
+</html>

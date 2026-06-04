@@ -1,0 +1,24 @@
+/* Box 1 complete a propriedade de display para exibir a div como um bloco
+Adicione as propriedades  de altura (100px) , largura(200px),  cor de background (lightblue) e margin da parte de baixo de 20px*/
+box1 {
+display: _________;
+background-color: black;
+width: 200px;
+height: 100px;
+margin-bottom: 20px;
+}
+
+/* O box2 e box3 devem ser exibidos em linha, mantendo as dimensões de altura e largura definidas para cada um */
+
+.box2 {
+display: block;
+background-color: lightgreen;
+width: 200px;
+height: 100px;
+margin-bottom: 20px;
+}
+
+/* O box3 deve ter largura de 300px e altura de 250px */
+.box3 {
+display: _________;
+}

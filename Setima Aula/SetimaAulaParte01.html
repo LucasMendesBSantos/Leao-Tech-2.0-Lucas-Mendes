@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aua 07</title>
+</head>
+
+<style>
+
+
+        /* o seletor universal *{} serve para tirar as margens */
+    *{   
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #Caixa1{
+        background: linear-gradient(blue, red, green);
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #Caixa1:hover{
+        background: linear-gradient(red, blue);
+        color: aliceblue;
+        transform: scale(1.2); /* deve ser feito com . e não com vigula*/
+        transition: 0.5s;
+    }
+
+    #Formulário{
+        width: 250px;
+        height: 100px;
+        background-color: rgb(36, 128, 97);
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    #Nome{
+        background-color: blue;
+        color: aliceblue;
+        border: 2px solid rgb(215, 230, 12);
+    }
+
+    #Nome:focus{
+        background-color: aliceblue;
+        color: black;
+    }
+
+    #Idade:focus{
+        background-color: black;
+        color: rgb(0, 0, 0);
+
+        /* box-shadow: deslocaentoX 
+        DeslocamentoY desfoque cor*/
+        box-shadow: -4px -4px 10px red
+
+    }
+
+.Container{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        margin: 3px;
+        position: static;
+        flex: 1;
+
+    }
+
+
+
+</style>
+
+
+<body>
+    
+
+    <div id="Caixa1">
+        <h3>Caixa 1</h3>
+
+
+    </div>
+
+    <div id="Formulário">
+        <label for="Nome">Nome:</label>
+        <input type="text" name="Nome" id="Nome">
+<br>
+<br>
+<label for="idade">Idade:</label>
+<input type="number" name="Idade" id="Idade">
+    </div>
+    
+    <div class="Container">
+    <div class="box">Div1</div>
+    <div class="box">Div2</div>
+    <div class="box">Div3</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio formulário</title>
+</head>
+<body> 
+  <div id="Titulo">  <h1>Formulário de Candidatura</h1> </div>
+    
+    <div>
+    <form action="">
+        
+        
+        <label for="Nome">Nome</label>
+        <br>
+        <input  type="text" name="Nome" id="Nome" placeholder="Ex: João" value="">
+        <br>
+        <br>
+        <label for="E-mail">E-mail</label>
+        <input type="email" name="E-mail" id="E-mail" placeholder="Ex: joão@gmail.com" value="">
+        <br>
+        <br>
+        <label for="Options">Vagas</label>
+        <select name="Vagas" id="Options">
+            <option value="Selecione">Selecione</option>
+            <option value="DEV">DEV</option>
+            <option value="QA">QA</option>
+            <option value="Scrum master">Scrum master</option>
+        </select>
+        <br><br>
+
+        <label for="Genero">Genero:</label><br>
+        <input type="radio" name="Masculino" id="Genero" value="Genero">
+        <label for="Genero">Masculino</label>
+        
+        <input type="radio" name="Feminino" id="Genero" value="Genero">
+        <label for="Genero"> Feminino</label>
+        
+        <input type="radio" name="Outro" id="Genero" value="Genero">
+        <label for="Genero">Outro</label>
+        <br>
+        <br>
+
+        <label for="Local">Unidade de interesse:</label><br>
+        <input type="checkbox" name="Fortaleza" id="Local" value="Local">
+        <label for="Local">Fortaleza</label>
+        
+        <input type="checkbox" name="Horizonte" id="Local" value="Local">
+        <label for="Local">Horizonte</label>
+        
+        <input type="checkbox" name="Eusébio" id="Local" value="Local">
+        <label for="Local">Eusébio</label>
+<br>
+<br>
+<label for="depoimento">Fale mais sobre você</label><br>
+        <textarea name="depoimento" id="depoimento" rows="5" cols="30" maxlength="300" required placeholder="Oi, eu sou Goku!"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Enviar">
+
+</form>
+    
+    </div>
+</body>
+</html>
+<style>
+
+#Titulo { margin: 0%; text-align: center; background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQceT2YZZOIgzFAn27S4Cz192xCK5F-lVedLw&s); }
+
+    div{background-color: grey;
+    padding: 50px 50px 50px 50px; 
+border-radius: 10px;}
+
+input{
+    border-radius: 10px 10px 10px 10px; padding: 2px 2px 2px 2px;
+}
+    
+</style>
