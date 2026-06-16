@@ -15,7 +15,7 @@ app.post('/cadastrarusuario', async (req, res) =>{
     res.json(resultado)
 })
 
-// Crie um endpoit para cadastrar um autor
+//endpoit para cadastrar um autor
 
 async function inserirAutor(){
     let nome = prompt('Digite o nome do autor: ')
@@ -29,6 +29,267 @@ async function inserirAutor(){
     console.log(error)
 }
 // inserirAutor()
+
+
+
+// hash de senha
+async function hashSenha(senha){
+    if (!senha) return null
+    const saltRounds = 10
+    return await bcrypt.hash(senha, saltRounds)
+}
+
+// ---------- USUÁRIOS ----------
+app.post('/usuarios', async (req, res) => {
+    try{
+        const body = req.body
+        if (body.senha) body.senha = await hashSenha(body.senha)
+        const {data, error} = await supabase.from('biblioteca_usuarios').insert(body).select()
+        if (error) return res.status(400).json({error})
+        res.status(201).json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/usuarios', async (req, res) => {
+    try{
+        const {data, error} = await supabase.from('biblioteca_usuarios').select('id,nome,cpf,telefone,endereco,tipo')
+        if (error) return res.status(400).json({error})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/usuarios/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_usuarios').select('*').eq('id', id)
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message:'Usuário não encontrado'})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.put('/usuarios/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const body = req.body
+        if (body.senha) body.senha = await hashSenha(body.senha)
+        const {data, error} = await supabase.from('biblioteca_usuarios').update(body).eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.delete('/usuarios/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_usuarios').delete().eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json({deleted: data})
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+// PERFIS 
+app.post('/perfis', async (req, res) => {
+    try{
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_perfis').insert(body).select()
+        if (error) return res.status(400).json({error})
+        res.status(201).json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/perfis', async (req, res) => {
+    try{
+        const {data, error} = await supabase.from('biblioteca_perfis').select('*')
+        if (error) return res.status(400).json({error})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/perfis/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_perfis').select('*').eq('id', id)
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message:'Perfil não encontrado'})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.put('/perfis/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_perfis').update(body).eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.delete('/perfis/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_perfis').delete().eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json({deleted: data})
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+// AUTORES 
+app.post('/autores', async (req, res) => {
+    try{
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_autor').insert(body).select()
+        if (error) return res.status(400).json({error})
+        res.status(201).json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/autores', async (req, res) => {
+    try{
+        const {data, error} = await supabase.from('biblioteca_autor').select('*')
+        if (error) return res.status(400).json({error})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+// Buscar autores por nome e/ou nacionalidade via query
+// Ex: /autores/buscar?nome=joao&nacionalidade=brasileiro
+app.get('/autores/buscar', async (req, res) => {
+    try{
+        const { nome, nacionalidade } = req.query
+        let query = supabase.from('biblioteca_autor').select('*')
+        if (nome) query = query.ilike('nome', `%${nome}%`)
+        if (nacionalidade) query = query.ilike('nacionalidade', `%${nacionalidade}%`)
+        const { data, error } = await query
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message: 'Nenhum autor encontrado'})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/autores/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_autor').select('*').eq('id', id)
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message:'Autor não encontrado'})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.put('/autores/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_autor').update(body).eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.delete('/autores/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_autor').delete().eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json({deleted: data})
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+// LIVROS 
+app.post('/livros', async (req, res) => {
+    try{
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_livro').insert(body).select()
+        if (error) return res.status(400).json({error})
+        res.status(201).json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/livros', async (req, res) => {
+    try{
+        const {data, error} = await supabase.from('biblioteca_livro').select('*, biblioteca_autor(*)')
+        if (error) return res.status(400).json({error})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/livros/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_livro').select('*, biblioteca_autor(*)').eq('id', id)
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message:'Livro não encontrado'})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.put('/livros/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_livro').update(body).eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.delete('/livros/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_livro').delete().eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json({deleted: data})
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+// EMPRÉSTIMOS 
+app.post('/emprestimos', async (req, res) => {
+    try{
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_emprestimo').insert(body).select()
+        if (error) return res.status(400).json({error})
+        res.status(201).json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/emprestimos', async (req, res) => {
+    try{
+        const {data, error} = await supabase.from('biblioteca_emprestimo').select('*, biblioteca_usuarios(*), biblioteca_livro(*)')
+        if (error) return res.status(400).json({error})
+        res.json(data)
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.get('/emprestimos/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_emprestimo').select('*, biblioteca_usuarios(*), biblioteca_livro(*)').eq('id', id)
+        if (error) return res.status(400).json({error})
+        if (!data || data.length === 0) return res.status(404).json({message:'Empréstimo não encontrado'})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.put('/emprestimos/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const body = req.body
+        const {data, error} = await supabase.from('biblioteca_emprestimo').update(body).eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json(data[0])
+    }catch(e){res.status(500).json({error:e.message})}
+})
+
+app.delete('/emprestimos/:id', async (req, res) => {
+    try{
+        const id = req.params.id
+        const {data, error} = await supabase.from('biblioteca_emprestimo').delete().eq('id', id).select()
+        if (error) return res.status(400).json({error})
+        res.json({deleted: data})
+    }catch(e){res.status(500).json({error:e.message})}
+})
 
 app.get('/listarlivros',async (req,res)=>{
     const {data, error} = await supabase.from('biblioteca_livro').select('titulo,genero, biblioteca_autor(nome,nacionalidade),quantidade')
@@ -83,9 +344,7 @@ GET -> Buscar informações
 GET NÃO -> Cadastra, não atualiza e não exclue 
 */
 
-// Faça um endpoint para buscar todos os autores
-// Faça um endpoint bara buscar um autor pelo ID
-// Faça um endpoint para buscar pelo nome e nacionalidade (Usando o query string)
+
 
 async function buscarLivro(titulo) {
     const {data, error} = await supabase.from('biblioteca_livro').select('titulo,genero,quantidade').eq('titulo',titulo)
